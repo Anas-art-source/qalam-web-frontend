@@ -1,0 +1,34 @@
+.filterContainer {
+  width: 100%;
+  height: 309px;
+  padding: 4rem;
+  padding-left: 6rem;
+}
+
+.categoryDisplay > h3 {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.categoryDisplayContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filterHeaderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filterHeaderContainer > h3 {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.clearAllButton {
+  padding: 0.8rem 1rem;
+  border-radius: 1000px;
+  border: 1px solid grey;
+}

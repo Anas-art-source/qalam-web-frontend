@@ -1,0 +1,19 @@
+.subjectContainer {
+  padding: 0 1rem;
+  flex-basis: 50%;
+}
+
+.subjectContainer > h3 {
+  font-size: 1.6rem;
+  color: grey;
+}
+
+.subjectNameDisplay {
+  padding: 1rem;
+  background-color: dodgerblue;
+  color: white;
+  list-style: none;
+  font-size: 1.4rem;
+  border-radius: 6px;
+  margin: 0.8rem 0;
+}

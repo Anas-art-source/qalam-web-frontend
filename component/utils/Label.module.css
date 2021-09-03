@@ -1,0 +1,13 @@
+.labelContainer {
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.labelContainer > p {
+  font-size: 1rem;
+  color: black;
+  margin: 0;
+}

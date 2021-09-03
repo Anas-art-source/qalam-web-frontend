@@ -1,0 +1,32 @@
+.headingContainer {
+  width: 100%;
+  padding: 2rem 7rem;
+}
+
+.mainHeading {
+  font-size: 4rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  z-index: 2;
+  position: relative;
+  font-weight: bolder;
+  background: linear-gradient(
+    to bottom,
+    var(--theme-primary-color) 0%,
+    var(--theme-secondary-color) 100%
+  );
+  display: inline-block;
+  background-clip: text;
+  color: transparent;
+}
+
+.secondaryHeading {
+  font-size: 7rem;
+  font-weight: 100;
+  text-transform: capitalize;
+  color: rgba(198, 195, 195, 0.3);
+  position: absolute;
+  z-index: 1;
+  display: block;
+  margin-top: -12rem;
+}

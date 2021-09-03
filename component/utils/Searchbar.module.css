@@ -1,0 +1,20 @@
+.searchContainer {
+  padding: 1rem;
+  background-color: white;
+  display: flex;
+
+  width: 70%;
+}
+
+.searchContainer > input {
+  padding: 1rem;
+  font-size: 1.3rem;
+  flex-basis: 95%;
+}
+
+.searchContainer > button {
+  padding: 1rem;
+  border: none;
+  border: 1px solid grey;
+  flex-basis: 8%;
+}

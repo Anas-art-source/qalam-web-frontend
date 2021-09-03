@@ -1,0 +1,27 @@
+.categoryButtonWrapper {
+  padding: 0.7rem 1.4rem;
+  /* background-color: rgb(215, 210, 210); */
+  border: 1px solid black;
+  display: inline-block;
+  border-radius: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categoryButtonWrapper_checked {
+  background-image: var(--primary-gradient);
+  color: white;
+  border: none;
+}
+
+.categoryButtonWrapper > label {
+  font-size: 1.4rem;
+}
+
+.categoryButtonWrapper > input {
+  display: none;
+}
+
+.categoryButtonWrapper > input:checked {
+}

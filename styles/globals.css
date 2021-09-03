@@ -4,6 +4,18 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  font-size: 75%;
+  background-color: whitesmoke;
+}
+
+:root {
+  --theme-primary-color: #1878c7;
+  --theme-secondary-color: #ff99cc;
+  --theme-background-color: white;
+  --shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+  --primary-gradient: linear-gradient(to bottom, #1878c7 0%, #ff99cc 100%);
+  --theme-section-background-color: whitesmoke;
 }
 
 a {

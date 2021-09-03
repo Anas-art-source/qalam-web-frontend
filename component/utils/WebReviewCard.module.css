@@ -1,0 +1,44 @@
+.webReviewCard {
+  padding: 2rem;
+  background-color: white;
+  width: 30rem;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+}
+
+.userAvatar {
+  width: 10rem;
+  height: 10rem;
+  background-color: red;
+  border-radius: 100%;
+  margin: auto;
+  /* background-image: url("../../assets/user.jpg"); */
+}
+
+.nameContainer {
+  width: 100%;
+  text-align: center;
+}
+
+.nameContainer > h3 {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.ratingContainer {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.reviewContainer {
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.dateContainer {
+  width: 100%;
+  text-align: center;
+  font-size: 1.1rem;
+}

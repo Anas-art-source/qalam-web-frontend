@@ -1,0 +1,103 @@
+.actionContainer {
+  background-image: linear-gradient(
+    90deg,
+    var(--theme-primary-color) 0%,
+    var(--theme-secondary-color) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 110vh;
+}
+
+.middleContainer {
+  width: 70%;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+
+.leftContainer {
+  flex-basis: 50%;
+  align-self: stretch;
+  background-image: url("../../assets/action2.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.rightContainer {
+  flex-basis: 50%;
+  padding: 1rem 3rem;
+}
+
+.logo {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: var(--theme-primary-color);
+}
+
+.welcome {
+  font-size: 3rem;
+  text-transform: capitalize;
+  font-weight: 400;
+  margin: 0;
+}
+
+.description {
+  font-size: 1.3rem;
+  color: grey;
+}
+
+.buttonContainer {
+  padding: 1.4rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.signupButton {
+  background-image: linear-gradient(90deg, #00b09b 0%, #96c93d 100%);
+  padding: 1.3rem 2rem;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+.loginButton {
+  padding: 1.3rem 2rem;
+  border: none;
+  color: black;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+.socialLoginText {
+  font-size: 1.2rem;
+}
+
+.socialButtonsContainer {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.fbButton {
+  padding: 1rem;
+  background-color: darkslateblue;
+  height: 100%;
+  align-items: center;
+  color: white;
+  display: flex;
+  align-self: stretch;
+  flex-basis: 70%;
+  gap: 1rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  border: none;
+}

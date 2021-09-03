@@ -1,0 +1,6 @@
+.heroContainer {
+  width: 100%;
+  height: 60vh;
+  border-radius: 100% 0% 73% 27% / 0% 71% 29% 100%;
+  background: linear-gradient(to bottom, #1878c7 0%, #ff99cc 100%);
+}

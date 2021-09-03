@@ -1,0 +1,48 @@
+.teacherHeaderContainer {
+  background-color: var(--theme-background-color);
+  padding-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.coverImage {
+  width: 100%;
+  height: 40rem;
+  background-image: url("../../assets/cover.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+.profilePicture {
+  width: 20rem;
+  height: 20rem;
+  /* background-color: red; */
+  border-radius: 100%;
+  margin: auto;
+  margin-top: -18rem;
+  border: 3px solid white;
+  background-image: url("../../assets/user.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.namePlate {
+  width: 100%;
+  text-align: center;
+}
+
+.namePlate > h3 {
+  margin: auto;
+  margin-top: 1rem;
+  font-size: 3rem;
+}
+
+.description {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.description > p {
+  font-size: 1.5rem;
+}

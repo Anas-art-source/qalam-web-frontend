@@ -1,0 +1,91 @@
+.teacherContainer {
+  background-color: white;
+  width: 100%;
+  width: 30rem;
+  border-radius: 7px;
+  list-style: none;
+  overflow: hidden;
+  border: 1px solid grey;
+  transition: all 0.2s;
+}
+
+.teacherContainer:hover {
+  transform: scale(1.02);
+}
+
+.coverImageContainer {
+  width: 30rem;
+  height: 15rem;
+  background-image: url("../../assets//cover.jpg");
+  background-size: cover;
+}
+
+.displayImageContainer {
+  width: 12rem;
+  height: 12rem;
+  background-color: white;
+  background-image: url("../../assets/user.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 1000px;
+  margin: auto;
+  margin-top: -5rem;
+  border: 1px solid black;
+}
+
+.namePlate {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0.3rem;
+}
+
+.namePlate > h3 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.queryContainer {
+  padding: 0 1rem;
+  width: 100%;
+  display: flex;
+  gap: 0.15rem;
+  flex-wrap: wrap;
+}
+
+.queryContainer > h4 {
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.subjectName {
+  font: 1rem;
+  color: blue;
+  display: inline-block;
+  font-weight: 400;
+}
+
+.footerContainer {
+  display: flex;
+  padding: 1rem;
+  gap: 0.4rem;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
+}
+
+.ratingContainer > p {
+  font-size: 1.4rem;
+}
+
+.address {
+  width: 90%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

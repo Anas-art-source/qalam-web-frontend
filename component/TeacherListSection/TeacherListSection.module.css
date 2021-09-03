@@ -1,0 +1,23 @@
+.teacherListContainer {
+  width: 100%;
+  padding-top: 10rem;
+  display: flex;
+}
+
+.sidebar {
+  flex-basis: 30%;
+  border-right: 1px solid grey;
+  box-sizing: border-box;
+}
+
+.mainContent {
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+.teachersContainer {
+  padding: 2rem 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

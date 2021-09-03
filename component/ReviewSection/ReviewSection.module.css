@@ -1,0 +1,43 @@
+.customShape {
+}
+
+.reviewSectionContainer {
+  margin-top: -16rem;
+}
+
+.svg {
+}
+
+.shape_fill {
+  fill: var(--theme-section-background-color);
+}
+
+.overallRatingContainer {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.overallRatingCenteredBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overallRatingCenteredBox > h4 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0;
+  margin-bottom: 5px;
+  color: grey;
+}
+
+.ratingCardContainer {
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

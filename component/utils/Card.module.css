@@ -1,0 +1,59 @@
+.cardContainer {
+  width: 23rem;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  color: var(--theme-secondary-color);
+  background-color: white;
+  padding: 1rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.headerIconContainer {
+  width: 100%;
+  padding: 2rem 2rem 0 2rem;
+}
+
+.icon {
+  font-size: 3rem;
+}
+
+.numberPlate {
+  position: absolute;
+  top: -2rem;
+  right: -2rem;
+  background-color: var(--theme-secondary-color);
+  width: 7rem;
+  height: 7rem;
+  border-radius: 10000px;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.numberPlate > h3 {
+  font-size: 2.4rem;
+}
+
+.headerTitleContainer {
+  width: 100%;
+  text-align: center;
+}
+
+.headerTitleContainer > h3 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.descriptionContainer {
+  width: 100%;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.descriptionContainer > p {
+  font-size: 1.2rem;
+  text-align: center;
+  color: grey;
+  line-height: 1.7rem;
+}

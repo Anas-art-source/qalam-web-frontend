@@ -1,0 +1,21 @@
+.teacherDetailContainer {
+  padding-top: 10rem;
+  width: 60%;
+  margin: auto;
+}
+
+.secondSection {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.thirdSection {
+  margin-top: 1rem;
+  width: 100%;
+  background-color: white;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,96 @@
+.navContainer {
+  display: flex;
+  width: 100vw;
+  min-width: 100%;
+  padding: 0 2rem;
+  position: fixed;
+  z-index: 100;
+  color: white;
+}
+
+.navContainer_scrolled {
+  display: flex;
+  width: 100vw;
+  min-width: 100%;
+  padding: 0 2rem;
+  position: fixed;
+  background: linear-gradient(to bottom, #1878c7 0%, #ff99cc 100%);
+
+  background-color: white;
+  box-shadow: var(--shadow);
+  color: white;
+  z-index: 100;
+}
+
+.logoContainer {
+  flex-basis: 30%;
+  margin-left: 20px;
+}
+
+.navigationBarContainer {
+  flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  align-items: center;
+  color: inherit;
+}
+
+.navigationBarContainer > li {
+  list-style: none;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.navigationBarContainer > li:hover {
+  transform: scale(1.05);
+}
+
+.joinButton {
+  padding: 1rem 2rem;
+  background-image: linear-gradient(90deg, #00b09b 0%, #96c93d 100%);
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  border-radius: 39px;
+  color: inherit;
+  box-shadow: inset 8px 8px 18px ##00b09b, inset -8px -8px 18px #96c93d;
+  cursor: pointer;
+}
+
+.actionContainer {
+  display: flex;
+  gap: 3rem;
+}
+
+.logoContainer > h1 {
+  font-size: 3rem;
+  font-weight: 200;
+  text-transform: uppercase;
+  color: inherit;
+}
+
+.actionButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.3rem 2rem;
+  align-self: center;
+  color: inherit;
+  cursor: pointer;
+}
+
+.actionButton > h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.actionButton_signup {
+  border-width: 2;
+  border-style: solid;
+  border-color: inherit;
+  border-radius: 0.4rem;
+}
