@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./ServiceCard.module.css";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
-export default function ServiceCard(props) {
+function ServiceCard(props) {
   return (
     <div className={styles.serviceCardContainer}>
       <div className={styles.serviceImageContainer}></div>
@@ -31,3 +31,5 @@ export default function ServiceCard(props) {
     </div>
   );
 }
+
+export default React.memo(ServiceCard);

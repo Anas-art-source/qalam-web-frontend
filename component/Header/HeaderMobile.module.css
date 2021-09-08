@@ -1,0 +1,119 @@
+.navigationContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navigationContainer_active {
+  background: var(--primary-gradient);
+}
+
+.navigationContainer > * {
+  padding: 0.7rem 2rem;
+}
+
+.hamburgerMenu {
+  color: whitesmoke;
+}
+
+.logoContainer > h4 {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 400;
+  color: white;
+  text-transform: uppercase;
+}
+
+.menuDrawer {
+  width: 0%;
+  height: 100%;
+  background-color: white;
+  position: fixed;
+  z-index: 1001;
+  left: -100%;
+  transition: all 2s;
+}
+
+.menuDrawer_active {
+  width: 67%;
+  left: 0;
+}
+
+.menuBackdrop {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.4;
+  position: fixed;
+  z-index: 500;
+}
+
+.drawerHeader {
+  width: 250px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0;
+}
+
+/* Ignore this ul */
+.navBar > ul {
+  padding: 0;
+  margin: 0;
+}
+
+.navBar > ul > li {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+  margin: 7px 0 0 6px;
+}
+
+.navBar > ul > li > a {
+  font-size: 12px;
+}
+
+.joinContainer {
+  padding: 8px;
+  background-color: whitesmoke;
+  margin: 6px;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  background-color: yellow;
+  border-radius: 100%;
+}
+
+.drawerHeader > h4 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 300px) {
+  .logoContainer > h4 {
+    font-size: 1.8rem;
+    margin: 0;
+    font-weight: 400;
+    color: white;
+    text-transform: uppercase;
+  }
+}

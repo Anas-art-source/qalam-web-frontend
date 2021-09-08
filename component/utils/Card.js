@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Card.module.css";
 
-export default function Card(props) {
+function Card(props) {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.headerIconContainer}>{props.children}</div>
@@ -19,3 +19,5 @@ export default function Card(props) {
     </div>
   );
 }
+
+export default React.memo(Card);

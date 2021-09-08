@@ -2,7 +2,7 @@ import Rating from "@material-ui/lab/Rating";
 import React from "react";
 import styles from "./WebReviewCard.module.css";
 
-export default function WebReviewCard() {
+function WebReviewCard() {
   return (
     <div className={styles.webReviewCard}>
       <div className={styles.userAvatar}></div>
@@ -38,3 +38,5 @@ export default function WebReviewCard() {
     </div>
   );
 }
+
+export default React.memo(WebReviewCard);

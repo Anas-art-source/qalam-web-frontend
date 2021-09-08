@@ -84,3 +84,70 @@
   border: 1px solid var(--theme-secondary-color);
   transform: scale(1.03);
 }
+
+/* media queries */
+
+@media screen and (max-width: 1100px) {
+  .serviceCardContainer {
+    width: 25rem;
+  }
+
+  .serviceImageContainer {
+    height: 20rem;
+    width: 100%;
+  }
+
+  .serviceLabelContainer {
+    margin-top: -7rem;
+  }
+  .serviceLabelContainer > h4 {
+    font-size: 1rem;
+  }
+
+  .serviceHeaderContainer > h2 {
+    font-size: 1.9rem;
+  }
+
+  .descriptionContainer > p {
+    font-size: 1rem;
+  }
+
+  .searchButton {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}
+
+/* this media query is comment out to be used later if need */
+
+/* 
+@media screen and (max-width: 750px) {
+  .serviceCardContainer {
+    width: 18rem;
+  }
+
+  .serviceImageContainer {
+    height: 14rem;
+    width: 100%;
+  }
+
+  .serviceLabelContainer {
+    margin-top: -5rem;
+  }
+  .serviceLabelContainer > h4 {
+    font-size: 0.7rem;
+  }
+
+  .serviceHeaderContainer > h2 {
+    font-size: 1.5rem;
+  }
+
+  .descriptionContainer > p {
+    font-size: 0.8rem;
+  }
+
+  .searchButton {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+} */

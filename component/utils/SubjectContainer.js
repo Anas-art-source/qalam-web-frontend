@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./SubjectContainer.module.css";
 
-export default function SubjectContainer() {
+function SubjectContainer() {
   return (
     <div className={styles.subjectContainer}>
       <h3>O levels</h3>
@@ -14,3 +14,5 @@ export default function SubjectContainer() {
     </div>
   );
 }
+
+export default React.memo(SubjectContainer);

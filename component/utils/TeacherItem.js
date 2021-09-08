@@ -4,7 +4,7 @@ import GradeIcon from "@material-ui/icons/Grade";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import Label from "./Label";
 
-export default function TeacherItem(props) {
+function TeacherItem(props) {
   return (
     <li className={styles.teacherContainer} onClick={props.onClick}>
       <div className={styles.coverImageContainer}></div>
@@ -34,3 +34,5 @@ export default function TeacherItem(props) {
     </li>
   );
 }
+
+export default React.memo(TeacherItem);

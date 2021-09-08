@@ -1,0 +1,39 @@
+.custom_shape {
+  position: absolute;
+  bottom: -1%;
+  left: 0%;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  border: none;
+  outline: none;
+}
+
+.svg {
+  position: relative;
+  display: block;
+  width: calc(104% + 1.3px);
+  height: 98px;
+}
+
+@media screen and (max-width: 1500px) {
+  .svg {
+    height: 80px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .svg {
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .svg {
+    height: 40px;
+  }
+}
+
+.shape_fill {
+  fill: var(--theme-section-background-color);
+}

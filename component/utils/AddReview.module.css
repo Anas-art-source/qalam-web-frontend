@@ -1,0 +1,81 @@
+.ratingContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  font-size: 5rem;
+}
+
+.addReviewContainer {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.avatar {
+  width: 5rem;
+  height: 5rem;
+  background-color: red;
+  border-radius: 100%;
+}
+
+.addReviewMainSection {
+  flex-basis: 95%;
+  padding: 1rem;
+  background-color: whitesmoke;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* .textInput {
+  width: 90%;
+  padding: 1rem;
+  overflow: hidden;
+  border: none;
+  resize: none;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.textInput:focus {
+  outline: none;
+} */
+
+.textInput {
+  width: 97%;
+  /* background-color: red; */
+  padding: 1rem;
+  margin: 0;
+  font-size: 1rem;
+  max-height: 100px;
+  overflow-y: scroll;
+}
+
+.textInput::-webkit-scrollbar {
+  display: none;
+}
+
+.textInput:focus {
+  border: none;
+  outline: none;
+}
+
+/* .textInput:focus > p {
+    display: none;
+} */
+
+.textInput > p {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.textInput:empty:before {
+  content: attr(data-placeholder);
+}
+
+/* .icon {
+  height: 1.4rem;
+  background-color: red;
+} */

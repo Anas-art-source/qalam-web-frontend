@@ -2,7 +2,7 @@
 }
 
 .reviewSectionContainer {
-  margin-top: -16rem;
+  /* margin-top: -16rem; */
 }
 
 .svg {
@@ -40,4 +40,12 @@
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+/* media queries */
+
+@media screen and (max-width: 1150px) {
+  .ratingCardContainer {
+    padding: 1rem 1.6rem;
+  }
 }

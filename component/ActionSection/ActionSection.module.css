@@ -12,6 +12,7 @@
 }
 
 .middleContainer {
+  margin-top: 3rem;
   width: 70%;
   background-color: white;
   border-radius: 5px;
@@ -100,4 +101,89 @@
   font-size: 1.2rem;
   font-weight: 400;
   border: none;
+}
+
+/* media queries */
+
+@media screen and (max-width: 1400px) {
+  .middleContainer {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .middleContainer {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .middleContainer {
+    width: 60%;
+    max-width: 60%;
+  }
+
+  .leftContainer {
+    display: none;
+  }
+
+  .rightContainer {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .middleContainer {
+    width: 80%;
+    max-width: 80%;
+  }
+
+  .leftContainer {
+    display: none;
+  }
+
+  .rightContainer {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .middleContainer {
+    width: 90%;
+    max-width: 90%;
+    height: 100%;
+
+  }
+
+  .leftContainer {
+    display: none;
+  }
+
+  .rightContainer {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .actionContainer {
+    height: 100%;
+  }
+  .middleContainer {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 12vh;
+  }
+
+  .leftContainer {
+    display: none;
+  }
+
+  .rightContainer {
+    flex-basis: 100%;
+    padding: 10px;
+  }
+
+  .socialButtonsContainer {
+    flex-direction: column;
+  }
 }

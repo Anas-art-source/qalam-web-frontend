@@ -4,7 +4,9 @@ import ServiceCard from "../utils/ServiceCard";
 import Heading from "../utils/Heading";
 import { useRouter } from "next/router";
 
-export default function ServiceSection() {
+function ServiceSection() {
+  // router will push and pass query to requested page
+  // query will be used to activate relevant filters -- such as Home tutor, Home-based tutor, Near me , etc
   const router = useRouter();
 
   return (
@@ -29,3 +31,5 @@ export default function ServiceSection() {
     </div>
   );
 }
+
+export default React.memo(ServiceSection);

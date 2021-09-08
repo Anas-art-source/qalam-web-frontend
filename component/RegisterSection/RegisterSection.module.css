@@ -1,9 +1,37 @@
-.mainContainer {
-  background: linear-gradient(to bottom, #1878c7 0%, #ff99cc 100%);
+.sectionContainer {
   width: 100%;
-  height: 130vh;
+  background: linear-gradient(to bottom, #1878c7 0%, #ff99cc 100%);
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.svgContainer {
+  width: 100%;
+  height: 10rem;
+  position: relative;
+
+  /* background-color: var(--theme-section-background-color); */
+  transform: rotate(180deg);
+  z-index: 100;
+}
+
+.svgContainer_bottom {
+  width: 100%;
+  height: 10rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* background-color: var(--theme-section-background-color); */
+  /* transform: rotate(180deg); */
+  z-index: 100;
+}
+
+.mainContainer {
+  /* background: linear-gradient(to bottom, #1878c7 0%, #ff99cc 100%); */
+  width: 100%;
+  height: 135vh;
   padding: 0;
-  margin-top: -16rem;
+  /* margin-top: -16rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,6 +43,7 @@
   transform: rotate(180deg);
   padding: 0;
   margin: 0;
+  margin-top: -1rem;
 }
 
 .shape_fill {
@@ -75,4 +104,47 @@
   color: white;
   font-size: 1.4rem;
   text-transform: uppercase;
+}
+
+/* Media queries  */
+
+@media screen and (max-width: 1150px) {
+  .sectionContainer {
+    height: 100%;
+  }
+
+  .mainContainer {
+    height: 100%;
+    padding: 4rem 3rem;
+  }
+
+  .cardContainer {
+    flex-direction: column;
+  }
+
+  .firstCard {
+    flex-direction: row;
+    justify-content: center;
+    flex-basis: 80%;
+  }
+
+  .secondCard {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .thirdCard {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .firstCard {
+    flex-direction: column;
+  }
+
+  .secondCard {
+    flex-direction: column;
+  }
 }

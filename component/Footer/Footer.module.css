@@ -1,6 +1,6 @@
 .footerSection {
   width: 100%;
-  height: 20vh;
+  height: 100%;
   background-color: black;
   margin: 0;
   padding: 4rem;
@@ -23,4 +23,23 @@
   display: flex;
   justify-content: center;
   padding: 1rem 0;
+}
+
+@media screen and (max-width: 600px) {
+  .footerSection {
+    padding: 2rem 1rem;
+  }
+  .developerContainer > h2 {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    font-weight: 200;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .developerContainer > h2 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-weight: 200;
+  }
 }

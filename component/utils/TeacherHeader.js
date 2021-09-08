@@ -1,7 +1,18 @@
 import React from "react";
 import styles from "./TeacherHeader.module.css";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
+import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
+import Rating from "@material-ui/lab/Rating";
+import Modal from "./Modal";
+import FormFields from "./FormFields";
+import PhoneAndroidIcon from "@material-ui/icons/PhoneAndroid";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
+import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
 
-export default function TeacherHeader() {
+function TeacherHeader() {
+  const [revealNumber, setRevealNumber] = React.useState(false);
+
   return (
     <section className={styles.teacherHeaderContainer}>
       <div className={styles.coverImage}></div>
@@ -14,10 +25,110 @@ export default function TeacherHeader() {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laborum,
           eos a odio est recusandae dicta dignissimos et, rem voluptas ad,
           provident quas modi. Libero architecto recusandae magni eligendi
+          dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+          laborum, eos a odio est recusandae dicta dignissimos et, rem voluptas
+          ad, provident quas modi. Libero architecto recusandae magni eligendi
+          dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
+          laborum, eos a odio est recusandae dicta dignissimos et, rem voluptas
+          ad, provident quas modi. Libero architecto recusandae magni eligendi
           dolor.
         </p>
       </div>
-      <div></div>
+
+      <div className={styles.ratingContainer}>
+        <Rating
+          name="read-only"
+          value={2.6}
+          precision={0.1}
+          readOnly
+          size="large"
+        />
+
+        <p>(31)</p>
+      </div>
+      <div className={styles.footer}>
+        <button
+          className={styles.phoneNumberButton}
+          onClick={() => setRevealNumber(true)}
+        >
+          0312-1202
+          <FiberManualRecordIcon
+            style={{ fontSize: "0.8rem", marginLeft: "0.2rem" }}
+          />
+          <FiberManualRecordIcon
+            style={{ fontSize: "0.8rem", marginLeft: "0.2rem" }}
+          />
+          <FiberManualRecordIcon
+            style={{ fontSize: "0.8rem", marginLeft: "0.2rem" }}
+          />
+          <VisibilityOffIcon style={{ color: "grey", marginLeft: "0.9rem" }} />
+        </button>
+        <button className={styles.chatButton}>Chat with Tutor</button>
+      </div>
+
+      {revealNumber && (
+        <Modal onClickBackDrop={setRevealNumber}>
+          <form className={styles.numberFormContainer}>
+            <div
+              className={styles.closeButton}
+              onClick={() => setRevealNumber(false)}
+            >
+              <CloseRoundedIcon />
+            </div>
+            <h2>Provide us with your name and detail</h2>
+            <FormFields
+              label="Name"
+              leftIcon={
+                <PersonOutlineIcon
+                  style={{ color: "grey", fontSize: "2.5rem" }}
+                />
+              }
+              placeholder="Type your Name Here..."
+              rightIcon={
+                <CheckCircleIcon style={{ color: "green", fontSize: "2rem" }} />
+              }
+            />
+            <FormFields
+              label="Phone"
+              type="phone"
+              placeholder="Type Email Here"
+              leftIcon={
+                <PhoneAndroidIcon
+                  style={{ color: "grey", fontSize: "2.5rem" }}
+                />
+              }
+              rightIcon={
+                <CheckCircleIcon style={{ color: "green", fontSize: "2rem" }} />
+              }
+            />
+
+            <button className={styles.revealNumberButton}>
+              Reveal Phone Number
+            </button>
+          </form>
+        </Modal>
+      )}
     </section>
   );
 }
+
+export default React.memo(TeacherHeader);
+
+// name
+// picture
+// cover
+// description
+// rating and ratingAverage
+// experience
+// affiliation
+// specialisation
+// university
+// age and experience
+// contact number
+// message
+// location
+// subjects
+// reviews
+// demo video
+// certificates
+// recommendations

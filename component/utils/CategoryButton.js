@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./CategoryButton.module.css";
 import ClearIcon from "@material-ui/icons/Clear";
 
-export default function CategoryButton(props) {
+function CategoryButton(props) {
   const [checked, setChecked] = React.useState(false);
   const inputRef = React.useRef();
 
@@ -28,3 +28,5 @@ export default function CategoryButton(props) {
     </div>
   );
 }
+
+export default React.memo(CategoryButton);

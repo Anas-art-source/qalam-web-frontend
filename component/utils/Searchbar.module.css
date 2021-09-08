@@ -18,3 +18,19 @@
   border: 1px solid grey;
   flex-basis: 8%;
 }
+
+@media screen and (max-width: 1050px) {
+  .searchContainer {
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .searchContainer {
+    width: 90%;
+  }
+
+  .searchContainer > button {
+    font-size: 10px;
+  }
+}

@@ -4,7 +4,7 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 
-export default function FormFields(props) {
+function FormFields(props) {
   const [focus, setFocus] = React.useState(false);
   const [displayPassword, setDisplayPassword] = React.useState(true);
 
@@ -52,3 +52,5 @@ export default function FormFields(props) {
     </div>
   );
 }
+
+export default React.memo(FormFields);

@@ -2,11 +2,11 @@ import React from "react";
 import styles from "./RadioWithComponent.module.css";
 import Rating from "@material-ui/lab/Rating";
 
-export default function RadioWithComponent(props) {
+function RadioWithComponent(props) {
   return (
     <>
       {props.radioOptionsArray.map((radioOption) => (
-        <div className={styles.radioContainer}>
+        <div className={styles.radioContainer} key={radioOption.value}>
           <input type="radio" id="rating" value="rating" name="rating" />
           <Rating
             name="hover-feedback"
@@ -21,3 +21,5 @@ export default function RadioWithComponent(props) {
     </>
   );
 }
+
+export default React.memo(RadioWithComponent);

@@ -3,6 +3,7 @@
   height: 100vh;
   background-color: var(--theme-section-background-color);
   position: relative;
+  padding: 1rem 0 10rem 0;
 }
 
 .backgroundImage {
@@ -23,4 +24,27 @@
   position: relative;
   z-index: 1;
   gap: 3rem;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1550px) {
+  .serviceCardContainer {
+    flex-wrap: wrap;
+    padding: 0 3rem;
+  }
+
+  .serviceSectionContainer {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .backgroundImage {
+    width: 20rem;
+    height: 20rem;
+    top: 4%;
+    right: 0%;
+  }
 }

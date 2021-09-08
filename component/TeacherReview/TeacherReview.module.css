@@ -1,0 +1,14 @@
+.reviewContainer {
+  background-color: white;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+.reviewContainer > h3 {
+  font-size: 1.5rem;
+  color: grey;
+}
+
+.reviewList {
+  /* padding: 1rem 0; */
+  /* background-color: red; */
+}

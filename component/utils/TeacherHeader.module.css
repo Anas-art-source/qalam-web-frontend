@@ -46,3 +46,78 @@
 .description > p {
   font-size: 1.5rem;
 }
+
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.phoneNumberButton {
+  background-color: whitesmoke;
+  padding: 1rem 1.3rem;
+  border: none;
+  display: flex;
+  font-size: 1.5rem;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.chatButton {
+  background-color: rgb(55, 119, 238);
+  padding: 1rem 1.3rem;
+  border: none;
+  display: flex;
+  font-size: 1.5rem;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.phoneNumberButton:hover {
+  background-color: rgb(212, 209, 209);
+}
+
+.chatButton:hover {
+  background-color: rgb(42, 109, 233);
+}
+
+.ratingContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1.4rem 0;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.ratingContainer > p {
+  font-size: 1rem;
+}
+
+.numberFormContainer {
+  background-color: white;
+  padding: 1rem;
+  width: 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.revealNumberButton {
+  padding: 1rem 2rem;
+  background-color: rgb(55, 119, 238);
+  color: white;
+  border-radius: 4px;
+  border: none;
+  margin-top: 1rem;
+}
+
+.closeButton {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,7 +1,7 @@
 .teacherContainer {
   background-color: white;
   width: 100%;
-  width: 30rem;
+  width: 27rem;
   border-radius: 7px;
   list-style: none;
   overflow: hidden;
@@ -24,13 +24,13 @@
   width: 12rem;
   height: 12rem;
   background-color: white;
-  background-image: url("../../assets/user.jpg");
+  background-image: url("../../assets/user-1.jfif");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 1000px;
   margin: auto;
-  margin-top: -5rem;
+  margin-top: -10rem;
   border: 1px solid black;
 }
 
@@ -70,7 +70,7 @@
 
 .footerContainer {
   display: flex;
-  padding: 1rem;
+  padding: 0.7rem;
   gap: 0.4rem;
 }
 

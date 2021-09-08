@@ -25,3 +25,15 @@
 
 .categoryButtonWrapper > input:checked {
 }
+
+/* media query */
+
+@media screen and (max-width: 1700px) {
+  .categoryButtonWrapper {
+    padding: 0.5rem 1rem;
+  }
+
+  .categoryButtonWrapper > label {
+    font-size: 1rem;
+  }
+}

@@ -15,3 +15,20 @@
   padding: 0;
   margin: 0;
 }
+
+/* media queries */
+
+@media screen and (max-width: 1700px) {
+  .radioContainer > h4 {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .radioContainer {
+    gap: 0.4rem;
+  }
+  .radioContainer > h4 {
+    font-size: 1rem;
+  }
+}

@@ -10,16 +10,18 @@ import GoogleButton from "react-google-button";
 import FacebookLogin from "react-facebook-login";
 import { useRouter } from "next/router";
 
-export default function ActionSection(props) {
+function ActionSection(props) {
+  // this component renders the login and signup form.
+  // It takes the path props to make sure which field to render and which field to hide
   const router = useRouter();
-  const Login = props.path === "login" ? true : false;
+  const Login = props.path === "login" ? true : false; // it will be used to display certain fields and hide certain field
 
   return (
     <section className={styles.actionContainer}>
       <div className={styles.middleContainer}>
         <div className={styles.leftContainer}></div>
         <div className={styles.rightContainer}>
-          {/* logo */}
+          {/* logo-- will be inserted here late */}
           <h2 className={styles.logo}>Qalam</h2>
           <h1 className={styles.welcome}>Welcome to the family</h1>
           <p className={styles.description}>
@@ -137,3 +139,5 @@ export default function ActionSection(props) {
     </section>
   );
 }
+
+export default React.memo(ActionSection);

@@ -32,3 +32,36 @@
   border-radius: 1000px;
   border: 1px solid grey;
 }
+
+.closeContainer {
+  display: none;
+}
+
+/* media queries */
+
+@media screen and (max-width: 1600px) {
+  .filterContainer {
+    padding: 4rem 1.5rem;
+  }
+
+  .filterHeaderContainer > h3 {
+    font-size: 1.4rem;
+  }
+  .categoryDisplay > h3 {
+    font-size: 1.4rem;
+  }
+
+  .clearAllButton {
+    padding: 0.4rem 0.5rem;
+  }
+}
+
+/* media query */
+
+@media screen and (max-width: 1300px) {
+  .closeContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

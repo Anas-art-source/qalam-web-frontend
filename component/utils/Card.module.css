@@ -57,3 +57,72 @@
   color: grey;
   line-height: 1.7rem;
 }
+
+/* media queries */
+
+@media screen and (max-width: 600px) {
+  .cardContainer {
+    width: 18rem;
+    padding: 0.7rem 0;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+  }
+
+  .numberPlate {
+    width: 6rem;
+    height: 6rem;
+  }
+  .numberPlate > h3 {
+    font-size: 2rem;
+  }
+
+  .headerTitleContainer > h3 {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  .descriptionContainer > p {
+    font-size: 1rem;
+    text-align: center;
+    color: grey;
+    line-height: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .cardContainer {
+    width: 100%;
+    padding: 0.3rem 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .headerIconContainer {
+    width: 100%;
+
+    padding-bottom: 1rem;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+  }
+
+  .numberPlate {
+    width: 6rem;
+    height: 6rem;
+  }
+  .numberPlate > h3 {
+    font-size: 2rem;
+  }
+
+  .headerTitleContainer > h3 {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+  .descriptionContainer > p {
+    display: none;
+  }
+}

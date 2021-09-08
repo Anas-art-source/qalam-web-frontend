@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Filter.module.css";
 import CategoryButton from "./CategoryButton";
 import RadioWithComponent from "../utils/RadioWithComponent";
+import CloseIcon from "@material-ui/icons/Close";
 
 const RadioButtonProps = [
   { value: 4.5, label: "4.5 and above" },
@@ -12,10 +13,17 @@ const RadioButtonProps = [
   { value: 2.5, label: "2.5 and below" },
 ];
 
-export default function Filter() {
+function Filter(props) {
   return (
     <div className={styles.filterContainer}>
       <div className={styles.categoryDisplay}>
+        <div
+          className={styles.closeContainer}
+          onClick={() => props.setFilterActive(false)}
+        >
+          <CloseIcon />
+        </div>
+
         <div className={styles.filterHeaderContainer}>
           <h3>Categories</h3>
           <button className={styles.clearAllButton}>Clear All</button>
@@ -43,3 +51,5 @@ export default function Filter() {
     </div>
   );
 }
+
+export default React.memo(Filter);

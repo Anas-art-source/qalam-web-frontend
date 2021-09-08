@@ -4,7 +4,7 @@
   min-width: 100%;
   padding: 0 2rem;
   position: fixed;
-  z-index: 100;
+  z-index: 1000;
   color: white;
 }
 
@@ -19,7 +19,7 @@
   background-color: white;
   box-shadow: var(--shadow);
   color: white;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .logoContainer {
@@ -93,4 +93,28 @@
   border-style: solid;
   border-color: inherit;
   border-radius: 0.4rem;
+}
+
+/* media queries */
+
+@media screen and (max-width: 1500px) {
+  .navigationBarContainer > li {
+    font-size: 1.3rem;
+  }
+
+  .joinButton {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .actionButton > h3 {
+    font-size: 1rem;
+  }
+
+  .actionButton_signup {
+    border-width: 1;
+    border-style: solid;
+    border-color: inherit;
+    border-radius: 0.4rem;
+  }
 }

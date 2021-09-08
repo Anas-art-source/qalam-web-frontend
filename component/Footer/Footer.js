@@ -2,12 +2,12 @@ import React from "react";
 import styles from "./Footer.module.css";
 import { FaHeart, FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
-export default function Footer() {
+function Footer() {
   return (
     <section className={styles.footerSection}>
       <div className={styles.developerContainer}>
         <h2>
-          Made with <FaHeart style={{ color: "red", margin: "0 1rem" }} /> by
+          Made with <FaHeart style={{ color: "red", margin: "0 0.6rem" }} /> by
           Anas Khan
         </h2>
       </div>
@@ -22,3 +22,5 @@ export default function Footer() {
     </section>
   );
 }
+
+export default React.memo(Footer);
