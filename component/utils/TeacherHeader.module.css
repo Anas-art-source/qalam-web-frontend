@@ -13,17 +13,14 @@
   border-radius: 8px;
 }
 
-.profilePicture {
-  width: 20rem;
-  height: 20rem;
-  /* background-color: red; */
-  border-radius: 100%;
+.profilePictureContainer {
+  width: 100%;
   margin: auto;
   margin-top: -18rem;
-  border: 3px solid white;
-  background-image: url("../../assets/user.jpg");
-  background-size: cover;
-  background-position: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 20;
 }
 
 .namePlate {
@@ -120,4 +117,23 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+}
+
+/* media queries */
+@media screen and (max-width: 1300px) {
+  .profilePictureContainer {
+    margin-top: -9rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .description > p {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .profilePictureContainer {
+    margin-top: -5rem;
+  }
 }

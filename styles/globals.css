@@ -35,7 +35,7 @@ a {
 
 @media screen and (max-width: 1200px) {
   body {
-    font-size: 55%;
+    font-size: 15%;
   }
 }
 
@@ -43,4 +43,19 @@ a {
   body {
     font-size: 50%;
   }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-gradient);
+
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-gradient);
 }

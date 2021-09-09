@@ -1,3 +1,9 @@
 .youtubeVideoContainer {
   flex-grow: 1;
 }
+
+@media screen and (max-width: 950px) {
+  .youtubeVideoContainer {
+    height: 50vh;
+  }
+}

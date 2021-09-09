@@ -13,7 +13,7 @@ function TeacherReview() {
         <ReviewItem />
         <ReviewItem />
         <ReviewItem />
-        <AddReview />
+        <AddReview showRating={true} showAvatar={true} />
       </div>
     </div>
   );

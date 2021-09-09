@@ -3,6 +3,10 @@ import styles from "./Modal.module.css";
 import { createPortal } from "react-dom";
 
 export default memo(function Modal(props) {
+  if (!process.browser) {
+    return null;
+  }
+
   return createPortal(
     <div className={styles.modalViewContainer}>
       <div

@@ -9,14 +9,34 @@ import PhoneAndroidIcon from "@material-ui/icons/PhoneAndroid";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import PersonOutlineIcon from "@material-ui/icons/PersonOutline";
 import CloseRoundedIcon from "@material-ui/icons/CloseRounded";
+import Avatar from "./Avatar";
+import Image from "next/image";
+import CoverImage from "./CoverImage";
+import useWindowSize from "../hook/useWindowSize";
 
 function TeacherHeader() {
   const [revealNumber, setRevealNumber] = React.useState(false);
 
   return (
     <section className={styles.teacherHeaderContainer}>
-      <div className={styles.coverImage}></div>
-      <div className={styles.profilePicture}></div>
+      {/* Cover Image */}
+
+      <CoverImage
+        loader="unsplash"
+        src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80"
+      />
+
+      <div className={styles.profilePictureContainer}>
+        <Avatar
+          loader="unsplash"
+          src={
+            "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+          }
+          size="large"
+          profilePic={true}
+        />
+      </div>
+      {/* <div className={styles.profilePicture}></div> */}
       <div className={styles.namePlate}>
         <h3>Anas Khan</h3>
       </div>

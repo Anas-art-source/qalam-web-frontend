@@ -21,7 +21,7 @@
 }
 
 .addReviewMainSection {
-  flex-basis: 95%;
+  flex-basis: 100%;
   padding: 1rem;
   background-color: whitesmoke;
   display: flex;
@@ -47,7 +47,7 @@
   /* background-color: red; */
   padding: 1rem;
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.3rem;
   max-height: 100px;
   overflow-y: scroll;
 }

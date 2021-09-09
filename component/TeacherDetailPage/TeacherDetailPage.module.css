@@ -1,7 +1,8 @@
 .teacherDetailContainer {
   padding-top: 10rem;
-  width: 60%;
+  width: 70%;
   margin: auto;
+  position: relative;
 }
 
 .secondSection {
@@ -18,4 +19,85 @@
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
+}
+
+.chatContainer {
+  position: fixed;
+  bottom: 4rem;
+  right: 10rem;
+  padding: 1rem;
+  z-index: 100;
+}
+
+.chatButton {
+  background-color: transparent;
+  border: none;
+  padding: 2rem 2.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow);
+
+  font-size: 2rem;
+  border-radius: 100%;
+  /* border: 1px solid grey; */
+  background-color: white;
+}
+
+.chatWindow {
+  position: absolute;
+  right: 9rem;
+  bottom: 4rem;
+}
+
+/* media queries */
+
+@media screen and (max-width: 1400px) {
+  .teacherDetailContainer {
+    width: 72vw;
+  }
+  .chatContainer {
+    right: 3rem;
+    bottom: 3rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .teacherDetailContainer {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .teacherDetailContainer {
+    width: 83vw;
+    padding-top: 6rem;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .secondSection {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .teacherDetailContainer {
+    width: 87vw;
+    padding-top: 6rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .teacherDetailContainer {
+    width: 90vw;
+    padding-top: 6rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .teacherDetailContainer {
+    width: 95vw;
+    padding-top: 6rem;
+  }
 }

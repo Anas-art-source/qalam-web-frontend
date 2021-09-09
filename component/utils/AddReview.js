@@ -6,22 +6,26 @@ import Rating from "@material-ui/lab/Rating";
 function AddReview(props) {
   return (
     <div>
-      <div className={styles.ratingContainer}>
-        <Rating
-          name="hover-feedback"
-          value={4}
-          defaultValue={4}
-          precision={0.5}
-          size="large"
-          style={{ fontSize: "2.6rem" }}
-        />
-      </div>
+      {props.showRating && (
+        <div className={styles.ratingContainer}>
+          <Rating
+            name="hover-feedback"
+            value={4}
+            defaultValue={4}
+            precision={0.5}
+            size="large"
+            style={{ fontSize: "2.6rem" }}
+          />
+        </div>
+      )}
       <div className={styles.addReviewContainer}>
-        <div className={styles.avatar}>{/* Avatar */}</div>
+        {props.showAvatar && (
+          <div className={styles.avatar}>{/* Avatar */}</div>
+        )}
 
         <div className={styles.addReviewMainSection}>
           <div
-            contenteditable="true"
+            contentEditable="true"
             className={styles.textInput}
             data-placeholder="Enter review here..."
           >
