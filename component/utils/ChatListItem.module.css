@@ -1,0 +1,114 @@
+.chatItemContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.chatItemContainer:hover {
+  /* transform: scale(1.05); */
+  box-shadow: var(--shadow);
+}
+
+.chatRightContainer {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatRightContainer > * {
+  margin: 0;
+  padding: 0;
+}
+
+.nameContainer {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.tickIcon {
+  font-size: 1.5rem;
+  padding-right: 1rem;
+}
+
+.tickIcon_seen {
+  color: blue;
+}
+
+.messageContainer {
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.message {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  flex-basis: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dot {
+  padding: 0;
+  margin: 0;
+  font-size: 1.4rem;
+  color: grey;
+}
+
+.date {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+
+.seenTickContainer {
+}
+
+/* media queries */
+
+@media screen and (max-width: 1900px) {
+  .chatRightContainer {
+    width: 85%;
+  }
+  .message {
+    flex-basis: 90%;
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  /* .message {
+    flex-basis: 85%;
+  } */
+}
+
+@media screen and (max-width: 1400px) {
+  .message {
+    flex-basis: 80%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .chatRightContainer {
+    width: 80%;
+  }
+  .message {
+    flex-basis: 75%;
+  }
+}

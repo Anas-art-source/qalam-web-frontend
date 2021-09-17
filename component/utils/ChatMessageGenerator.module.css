@@ -11,6 +11,7 @@
   color: white;
   border-radius: 3px;
   font-size: 1rem;
+  box-shadow: var(--shadow);
 }
 
 .chatMessageWrapper {
@@ -28,12 +29,14 @@
   color: white;
   font-size: 1.3rem;
   margin: 0 0.7rem;
+  box-shadow: var(--shadow);
 }
 
 .chatMessageContainer_sender {
   margin-left: auto;
   background-color: whitesmoke;
   color: black;
+  box-shadow: var(--shadow);
 }
 
 .chatMessageText {

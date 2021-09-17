@@ -1,0 +1,17 @@
+.formController {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.formController > label {
+  font-size: 1.3rem;
+}
+
+.formController > textarea {
+  width: 95%;
+  padding: 1rem;
+  font-size: 1.3rem;
+  font-family: inherit;
+  resize: none;
+}

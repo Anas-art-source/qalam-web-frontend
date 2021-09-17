@@ -7,13 +7,19 @@ import SubjectContainer from "../utils/SubjectContainer";
 import TeacherReview from "../TeacherReview/TeacherReview";
 import ChatIcon from "@material-ui/icons/Chat";
 import ChatWindow from "../utils/ChatWindow";
+import useWindowSize from "../hook/useWindowSize";
 
 function TeacherDetailPage() {
   const [chatButtonClicked, setChatButtonClicked] = React.useState(false);
+  const { width } = useWindowSize();
 
   return (
     <div className={styles.teacherDetailContainer}>
-      <TeacherHeader />
+      <TeacherHeader
+        onClickChatButton={() =>
+          setChatButtonClicked((prevState) => !prevState)
+        }
+      />
       <div className={styles.secondSection}>
         <TeacherCredentials />
         <YoutubeVideo />
@@ -29,20 +35,22 @@ function TeacherDetailPage() {
         <TeacherReview />
       </div>
 
-      <div className={styles.chatContainer}>
-        <button
-          className={styles.chatButton}
-          onClick={() => setChatButtonClicked((prevState) => !prevState)}
-        >
-          <ChatIcon color="inherit" fontSize="inherit" />
-        </button>
+      {width > 1000 && (
+        <div className={styles.chatContainer}>
+          <button
+            className={styles.chatButton}
+            onClick={() => setChatButtonClicked((prevState) => !prevState)}
+          >
+            <ChatIcon color="inherit" fontSize="inherit" />
+          </button>
 
-        {chatButtonClicked && (
-          <div className={styles.chatWindow}>
-            <ChatWindow onClickCloseButton={setChatButtonClicked} />
-          </div>
-        )}
-      </div>
+          {chatButtonClicked && (
+            <div className={styles.chatWindow}>
+              <ChatWindow onClickCloseButton={setChatButtonClicked} />
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

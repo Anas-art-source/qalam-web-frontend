@@ -13,9 +13,12 @@ import Avatar from "./Avatar";
 import Image from "next/image";
 import CoverImage from "./CoverImage";
 import useWindowSize from "../hook/useWindowSize";
+import router, { useRouter } from "next/router";
 
-function TeacherHeader() {
+function TeacherHeader(props) {
   const [revealNumber, setRevealNumber] = React.useState(false);
+  const { width } = useWindowSize();
+  const router = useRouter();
 
   return (
     <section className={styles.teacherHeaderContainer}>
@@ -67,25 +70,39 @@ function TeacherHeader() {
         <p>(31)</p>
       </div>
       <div className={styles.footer}>
+        {/* Reveal phone number button */}
         <button
           className={styles.phoneNumberButton}
           onClick={() => setRevealNumber(true)}
         >
           0312-1202
+          {/* 3 Dot Icons that hides the number */}
           <FiberManualRecordIcon
-            style={{ fontSize: "0.8rem", marginLeft: "0.2rem" }}
+            style={{ fontSize: "inherit", marginLeft: "0.2rem" }}
           />
           <FiberManualRecordIcon
-            style={{ fontSize: "0.8rem", marginLeft: "0.2rem" }}
+            style={{ fontSize: "inherit", marginLeft: "0.2rem" }}
           />
           <FiberManualRecordIcon
-            style={{ fontSize: "0.8rem", marginLeft: "0.2rem" }}
+            style={{ fontSize: "inherit", marginLeft: "0.2rem" }}
           />
           <VisibilityOffIcon style={{ color: "grey", marginLeft: "0.9rem" }} />
         </button>
-        <button className={styles.chatButton}>Chat with Tutor</button>
+
+        {/* Chat with Tutor Button */}
+        <button
+          className={styles.chatButton}
+          onClick={
+            width > 1000
+              ? props.onClickChatButton
+              : () => router.push("/messages")
+          }
+        >
+          Chat with Tutor
+        </button>
       </div>
 
+      {/* Modal that will appear when phone number button is clicked. It will only appear when user is not logged in */}
       {revealNumber && (
         <Modal onClickBackDrop={setRevealNumber}>
           <form className={styles.numberFormContainer}>

@@ -1,0 +1,301 @@
+.formSection {
+  width: 100%;
+}
+
+.formContainer {
+  padding-top: 10rem;
+  width: 70%;
+  /* background-color: red; */
+  margin: auto;
+  position: relative;
+  /* this will controll the sliding of the form */
+  /* overflow: hidden; */
+}
+
+.formProgressAndErrorWrapper {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 10rem;
+  z-index: 2;
+  /* background-color: red; */
+}
+
+.formProgressContainer {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* background-color: red; */
+}
+
+.progressContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 1.7rem;
+  padding: 2rem;
+  background-image: linear-gradient(to bottom, lightgray 0%, lightgray 100%);
+  border-radius: 100%;
+  transition: all 1s;
+  color: black;
+}
+
+.icon_active {
+  border-radius: 20%;
+  background-image: var(--primary-gradient);
+  color: white;
+}
+
+.span {
+  width: 25rem;
+  height: 0.8rem;
+  background-color: lightgray;
+  transition: all 1s;
+  /* border-radius: 10px; */
+}
+
+.span_active {
+  /* background-image: var(--primary-gradient); */
+  /* animation: backgroundColorFill 10s linear infinite; */
+  animation-timing-function: ease;
+}
+
+.spanInner {
+  height: 100%;
+  width: 0%;
+  background-image: var(--primary-gradient);
+  transition: all 1s ease-in-out;
+  /* transition-delay: 1s; */
+}
+
+.spanInner_active {
+  width: 100%;
+}
+
+/* @keyframes backgroundColorFill {
+  0% {
+    background-image: linear-gradient(
+      to right,
+      red 0%,
+      lightgray 0%,
+      lightgray 100%
+    );
+  }
+
+  100% {
+    background-image: linear-gradient(
+      to right,
+      red 0%,
+      red: 50%,
+      lightgray 50%
+    );
+  }
+} */
+
+.titleContainer {
+  color: lightgray;
+  transition: all 1s;
+}
+
+.titleContainer_active {
+}
+
+.header {
+  font-size: 1.3rem;
+  color: lightgray;
+  margin-left: -22%;
+}
+
+.header_active {
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: var(--primary-gradient);
+  color: transparent;
+}
+
+.errorContainer {
+  width: 100%;
+  text-align: center;
+  color: red;
+  font-size: 1.3rem;
+}
+
+.mainFormWrapper {
+  width: 100%;
+  overflow: hidden;
+  /* height: 10vh; */
+  /* background-color: red; */
+}
+
+.mainFormContainer {
+  width: 100%;
+  display: flex;
+  /* transform: translateX(-33.33%); */
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+  color: white;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding: 1rem;
+  padding-right: 10%;
+}
+
+.btn {
+  padding: 1.5rem 5rem;
+  border-radius: 100px;
+  border: none;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.backBtn {
+  background-color: lightgray;
+}
+
+.backBtn:hover {
+  background-color: rgb(173, 173, 173);
+}
+
+.nextBtn {
+  background-color: rgb(0, 131, 0);
+  color: white;
+}
+
+.nextBtn:hover {
+  background-color: rgb(1, 143, 1);
+  color: white;
+}
+
+.submitBtn {
+  background-color: rgb(90, 90, 221);
+  color: white;
+}
+
+.submitBtn:hover {
+  background-color: rgb(72, 72, 223);
+}
+
+/* media queries */
+
+@media screen and (max-width: 950px) {
+  .span {
+    width: 18rem;
+    height: 0.6rem;
+  }
+
+  .icon {
+    font-size: 1.4rem;
+    padding: 1.3rem;
+  }
+
+  .header {
+    font-size: 1rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .formContainer {
+    width: 80%;
+  }
+  .span {
+    width: 15rem;
+    height: 0.6rem;
+  }
+
+  .icon {
+    font-size: 1.2rem;
+    padding: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .span {
+    width: 13rem;
+    height: 0.4rem;
+  }
+
+  .icon {
+    font-size: 1.2rem;
+    padding: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .formContainer {
+    width: 90%;
+  }
+
+  .span {
+    width: 10rem;
+    height: 0.4rem;
+  }
+
+  .icon {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .header {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .span {
+    width: 7rem;
+    height: 0.4rem;
+  }
+
+  .icon {
+    font-size: 0.6rem;
+    padding: 0.6rem;
+  }
+
+  .header {
+    font-size: 0.7rem;
+  }
+
+  .btn {
+    font-size: 0.7rem;
+    padding: 0.7rem 1.3rem;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 310px) {
+  .span {
+    width: 6rem;
+    height: 0.4rem;
+  }
+
+  .icon {
+    font-size: 0.6rem;
+    padding: 0.6rem;
+  }
+
+  .header {
+    font-size: 0.6rem;
+  }
+}

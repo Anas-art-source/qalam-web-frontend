@@ -11,7 +11,7 @@ function SubjectContainer() {
       <h3>O levels</h3>
 
       <li className={styles.subjectNameDisplay}>
-        <h3>Economics</h3>
+        <h3>The Principle of Accounting</h3>
         <button
           className={styles.demoButton}
           onClick={() => setViewDemoClicked(true)}

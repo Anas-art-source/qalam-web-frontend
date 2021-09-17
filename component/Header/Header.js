@@ -7,9 +7,63 @@ import HeaderMobile from "./HeaderMobile";
 import useWindowSize from "../hook/useWindowSize";
 import Modal from "../utils/Modal";
 import ActionSection from "../ActionSection/ActionSection";
+import ChatIcon from "@material-ui/icons/Chat";
+import Avatar from "../utils/Avatar";
 
 function HeaderLarge(props) {
   const router = useRouter();
+  const [login, setLogin] = React.useState(false);
+
+  // ActionCOntainerChildren is the right part of the big screen navigation
+
+  let ActionContainerChildren;
+  if (!login) {
+    // it the user is not login, they are shows the sign up and login button
+    ActionContainerChildren = (
+      <>
+        <div
+          className={styles.actionButton}
+          onClick={() => router.push("/action/login")}
+        >
+          <PersonOutlineOutlinedIcon />
+          <h3>Login </h3>
+        </div>
+        <div
+          className={`${styles.actionButton} ${styles.actionButton_signup}`}
+          onClick={() => router.push("/action/signup")}
+        >
+          <PersonAddOutlinedIcon />
+          <h3>Signup</h3>
+        </div>
+      </>
+    );
+  } else {
+    // if the user is login it shows users its own avatar. Avatar redirect user to its own profile, edit and setting and signout
+    // if user is login, is also shows the message. this redirect user to messenger page
+    ActionContainerChildren = (
+      <>
+        <div className={styles.actionButton}>
+          <div
+            className={styles.chatIconContainer}
+            onClick={() => router.push("/messages")}
+          >
+            <ChatIcon style={{ fontSize: "2.6rem" }} />
+            <span>9+</span>
+          </div>
+        </div>
+
+        <div className={styles.actionButton}>
+          <Avatar
+            loader="unsplash"
+            src={
+              "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+            }
+            size="extraSmall"
+          />
+        </div>
+      </>
+    );
+  }
 
   return (
     <>
@@ -36,26 +90,16 @@ function HeaderLarge(props) {
           </li>
 
           <li>
-            <a className={styles.joinButton}>Join Us !</a>
+            <a
+              className={styles.joinButton}
+              onClick={() => router.push("/form")}
+            >
+              Join Us !
+            </a>
           </li>
         </ul>
 
-        <div className={styles.actionContainer}>
-          <div
-            className={styles.actionButton}
-            onClick={() => router.push("/action/login")}
-          >
-            <PersonOutlineOutlinedIcon />
-            <h3>Login </h3>
-          </div>
-          <div
-            className={`${styles.actionButton} ${styles.actionButton_signup}`}
-            onClick={() => router.push("/action/signup")}
-          >
-            <PersonAddOutlinedIcon />
-            <h3>Signup</h3>
-          </div>
-        </div>
+        <div className={styles.actionContainer}>{ActionContainerChildren}</div>
       </nav>
     </>
   );
@@ -99,7 +143,7 @@ function Header(props) {
 
   let HeaderToDisplay;
 
-  if (width > 1200) {
+  if (width > 900) {
     HeaderToDisplay = <HeaderLarge scrolled={scrolled} />;
   } else {
     HeaderToDisplay = <HeaderMobile scrolled={scrolled} />;

@@ -33,6 +33,10 @@ export default memo(function Avatar(props) {
       setSizeInPx(120);
     }
 
+    if (props.size === "extraSmall") {
+      setSizeInPx(50);
+    }
+
     if (!props.profilePic) return;
   }, [width, props.profilePic, props.size]);
 
@@ -46,7 +50,7 @@ export default memo(function Avatar(props) {
   return (
     <div
       style={{
-        width: `${sizeInPx}px`,
+        width: ` ${sizeInPx}px`,
         height: `${sizeInPx}px`,
         borderRadius: "100%",
         backgroundColor: "white",

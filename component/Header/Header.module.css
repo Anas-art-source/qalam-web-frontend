@@ -95,6 +95,24 @@
   border-radius: 0.4rem;
 }
 
+.chatIconContainer {
+  position: relative;
+  transition: all 0.2s;
+}
+
+.chatIconContainer > span {
+  position: absolute;
+  background-color: orangered;
+  padding: 0.4rem;
+  border-radius: 100%;
+  top: -30%;
+  left: 85%;
+}
+
+.chatIconContainer:hover {
+  transform: scale(1.09);
+}
+
 /* media queries */
 
 @media screen and (max-width: 1500px) {
@@ -116,5 +134,15 @@
     border-style: solid;
     border-color: inherit;
     border-radius: 0.4rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .navigationBarContainer {
+    flex-basis: 70%;
+    gap: 2rem;
+  }
+  .navigationBarContainer > li {
+    font-size: 1.1rem;
   }
 }

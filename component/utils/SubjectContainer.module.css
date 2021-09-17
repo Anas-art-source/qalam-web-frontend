@@ -29,7 +29,7 @@
   background-color: transparent;
   border: 1px solid white;
   padding: 1rem 1.2rem;
-  border-radius: 100px;
+  border-radius: 5px;
   color: white;
   font-size: 1rem;
 }
@@ -38,4 +38,51 @@
   background-color: white;
   color: black;
   border: 1px solid white;
+}
+
+/* media queries */
+
+@media screen and (max-width: 1300px) {
+  .subjectNameDisplay {
+    padding: 0.9rem;
+  }
+
+  .subjectNameDisplay > h3 {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .subjectNameDisplay {
+    padding: 0.7rem;
+  }
+
+  .subjectNameDisplay > h3 {
+    font-size: 1.5rem;
+  }
+
+  .demoButton {
+    padding: 0.8rem 1rem;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .subjectContainer {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .subjectNameDisplay {
+    padding: 0.7rem;
+  }
+
+  .subjectNameDisplay > h3 {
+    font-size: 1.3rem;
+  }
+
+  .demoButton {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+  }
 }

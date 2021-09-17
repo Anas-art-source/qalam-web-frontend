@@ -7,7 +7,7 @@
 .avatar {
   width: 5rem;
   height: 5rem;
-  background-color: red;
+  /* background-color: red; */
   border-radius: 100%;
 }
 
@@ -42,4 +42,53 @@
 .reviewStarsAndDateContainer > p {
   font-size: 1rem;
   color: grey;
+}
+
+/* media queries */
+@media screen and (max-width: 1000px) {
+  .reviewContentContainer > h4 {
+    font-size: 1.2rem;
+  }
+
+  .reviewContentContainer > p {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .reviewContentContainer > h4 {
+    font-size: 1.1rem;
+  }
+
+  .reviewContentContainer > p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .reviewContentContainer > h4 {
+    font-size: 1rem;
+  }
+  .reviewContentContainer {
+    flex-basis: 80%;
+    width: 70%;
+    /* background-color: red; */
+  }
+  .reviewContentContainer > p {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .reviewContentContainer > h4 {
+    font-size: 1rem;
+  }
+  .reviewContentContainer {
+    flex-basis: 73%;
+    /* width: 70%; */
+    /* background-color: red; */
+  }
+  .reviewContentContainer > p {
+    font-size: 0.8rem;
+  }
 }

@@ -1,0 +1,67 @@
+.formContainer {
+  width: 100%;
+}
+
+.formContainer > button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(75, 75, 237);
+  color: white;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+.streamWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.streamWrapper > label {
+  font-size: 1.3rem;
+}
+
+.select {
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+.subjectWrapper {
+  display: flex;
+  gap: 1.3rem;
+  align-items: center;
+  margin-left: 2rem;
+  flex-basis: 50%;
+  padding: 0.6rem 0;
+}
+
+.subjectWrapper > label {
+  font-size: 1.2rem;
+}
+
+.selectSubject {
+  padding: 1rem;
+  width: 30%;
+}
+
+.subjectContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.subject {
+  flex-basis: 50%;
+}
+
+.addSubjectBtn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 6px;
+  background-color: rgb(75, 75, 237);
+  color: white;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}

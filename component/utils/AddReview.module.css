@@ -28,6 +28,14 @@
   align-items: flex-end;
 }
 
+.icon {
+  font-size: 2rem;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding-right: 0.3rem;
+}
+
 /* .textInput {
   width: 90%;
   padding: 1rem;
@@ -79,3 +87,17 @@
   height: 1.4rem;
   background-color: red;
 } */
+
+@media screen and (max-width: 500px) {
+  .textInput {
+    font-size: 0.8rem;
+  }
+
+  .addReviewMainSection {
+    padding: 0.2rem;
+  }
+
+  .icon {
+    font-size: 1.2rem;
+  }
+}

@@ -7,8 +7,6 @@ import { useRouter } from "next/router";
 function HeaderMobile(props) {
   const router = useRouter();
 
-  console.log(props.scrolled, "scrilled in header mobile");
-
   const [menuButtonClicked, setMenuButtonClicked] = React.useState(false);
 
   return (
@@ -42,7 +40,10 @@ function HeaderMobile(props) {
                   <a>Blog</a>
                 </li>
               </ul>
-              <div className={styles.joinContainer}>
+              <div
+                className={styles.joinContainer}
+                onClick={() => router.push("/form")}
+              >
                 <a>Join Us!</a>
               </div>
             </div>

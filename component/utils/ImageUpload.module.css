@@ -1,0 +1,173 @@
+.imageUploadContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.imageUploadViewer {
+  padding: 3rem;
+  width: 40rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5%;
+  border-width: 3px;
+  border-color: grey;
+  border-style: dotted;
+  position: relative;
+}
+
+.uploadIcon {
+  color: rgb(77, 77, 162);
+  font-size: 10rem;
+}
+
+.imageUploadViewer > p {
+  font-size: 2rem;
+}
+
+.error {
+  font-size: 1rem;
+  color: red;
+}
+
+.closeContainer {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  font-size: 2rem;
+  color: rgb(77, 77, 162);
+}
+
+.customButton {
+  width: 70%;
+  padding: 1rem;
+  /* background-color: red; */
+  border: none;
+  border-radius: 100px;
+  margin-top: 1rem;
+  background-image: var(--primary-gradient);
+  color: white;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.imageWrapper {
+  width: 12rem;
+  height: 14rem;
+  background-color: lightgray;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* media queries */
+
+@media screen and (max-width: 700px) {
+  .imageUploadViewer {
+    width: 30rem;
+  }
+
+  .uploadIcon {
+    font-size: 8rem;
+  }
+
+  .imageWrapper {
+    width: 12rem;
+    height: 10rem;
+  }
+
+  .customButton {
+    width: 80%;
+    font-size: 1.2rem;
+  }
+  .imageUploadViewer > p {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .imageContainer {
+    flex-direction: column;
+  }
+  .imageUploadViewer {
+    width: 25rem;
+  }
+
+  .uploadIcon {
+    font-size: 6rem;
+  }
+
+  .imageWrapper {
+    width: 11rem;
+    height: 9rem;
+  }
+
+  .customButton {
+    width: 90%;
+    font-size: 1.2rem;
+  }
+  .imageUploadViewer > p {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .imageUploadViewer {
+    width: 22rem;
+  }
+
+  .uploadIcon {
+    font-size: 5rem;
+  }
+
+  .imageWrapper {
+    width: 11rem;
+    height: 9rem;
+  }
+
+  .customButton {
+    width: 90%;
+    font-size: 1.2rem;
+  }
+  .imageUploadViewer > p {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .imageUploadViewer {
+    width: 18rem;
+  }
+
+  .uploadIcon {
+    font-size: 5rem;
+  }
+
+  .imageWrapper {
+    width: 11rem;
+    height: 9rem;
+  }
+
+  .customButton {
+    width: 90%;
+    font-size: 1rem;
+  }
+  .imageUploadViewer > p {
+    font-size: 1.2rem;
+  }
+}

@@ -1,11 +1,33 @@
 import React from "react";
 import styles from "./ReviewItem.module.css";
 import Rating from "@material-ui/lab/Rating";
+import Avatar from "./Avatar";
+import useWindowSize from "../hook/useWindowSize";
 
 function ReviewItem() {
+  const [avatarSize, setAvatarSize] = React.useState("large");
+  const { width } = useWindowSize();
+
+  React.useEffect(() => {
+    if (width < 400) {
+      setAvatarSize("small");
+    } else if (width > 400 && width < 900) {
+      setAvatarSize("medium");
+    } else {
+      setAvatarSize("large");
+    }
+  }, [width]);
+
   return (
     <div className={styles.reviewItemContainer}>
-      <div className={styles.avatar}></div>
+      {/* <div className={styles.avatar}></div> */}
+      <Avatar
+        loader="unsplash"
+        src={
+          "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+        }
+        size="extraSmall"
+      />
       <div className={styles.reviewContentContainer}>
         <h4>Anas Khan</h4>
 
@@ -16,7 +38,7 @@ function ReviewItem() {
             defaultValue={4}
             precision={0.5}
             readOnly
-            size="large"
+            size={avatarSize}
           />
 
           <p>week ago</p>

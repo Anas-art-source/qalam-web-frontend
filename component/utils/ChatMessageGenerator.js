@@ -33,10 +33,14 @@ function ChatMessage(props) {
 
 export default memo(function ChatMessageGenerator() {
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <ChatNewDateLabel />
 
       <ChatMessage sender={true} />
+      <ChatMessage />
+      <ChatMessage />
+      <ChatMessage />
+      <ChatMessage />
       <ChatMessage />
       <ChatMessage />
       <ChatMessage />

@@ -2,15 +2,16 @@
   background-color: white;
   width: 100%;
   width: 27rem;
-  border-radius: 7px;
   list-style: none;
   overflow: hidden;
-  border: 1px solid grey;
+  /* border-radius: 7px; */
+  /* border: 1px solid grey; */
   transition: all 0.2s;
 }
 
 .teacherContainer:hover {
   transform: scale(1.02);
+  box-shadow: var(--shadow);
 }
 
 .coverImageContainer {

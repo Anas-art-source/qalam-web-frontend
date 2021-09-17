@@ -1,0 +1,57 @@
+.formContainer {
+  width: 100%;
+  height: 100%;
+  /* background-color: yellow; */
+  padding: 1rem;
+}
+
+.nameContainer {
+  display: flex;
+  width: 100%;
+  /* background-color: blue; */
+}
+
+.nameContainer > * {
+  flex-basis: 50%;
+}
+
+.descriptionContainer {
+  margin-top: 1rem;
+}
+
+.uploadContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  flex-basis: 40%;
+}
+
+.uploadContainer > h3 {
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+
+.uploadWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* media queries */
+
+@media screen and (max-width: 700px) {
+  .nameContainer {
+    flex-direction: column;
+  }
+
+  .nameContainer > * {
+    align-self: stretch;
+  }
+
+  .uploadWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}

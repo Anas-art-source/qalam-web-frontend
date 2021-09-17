@@ -1,0 +1,10 @@
+.formController {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.formController > label {
+  font-size: 1.3rem;
+}

@@ -1,0 +1,19 @@
+.formController {
+  display: flex;
+  flex-direction: column;
+}
+
+.formController label {
+  font-size: 1.4rem;
+  padding: 0.6rem 0;
+}
+
+.formController input {
+  padding: 0.6rem;
+  width: 90%;
+  font-size: 1.1rem;
+}
+
+.formController input:focus {
+  outline: 1.3px solid blue;
+}

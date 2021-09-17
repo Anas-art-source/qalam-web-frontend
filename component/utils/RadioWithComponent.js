@@ -8,6 +8,7 @@ function RadioWithComponent(props) {
       {props.radioOptionsArray.map((radioOption) => (
         <div className={styles.radioContainer} key={radioOption.value}>
           <input type="radio" id="rating" value="rating" name="rating" />
+
           <Rating
             name="hover-feedback"
             value={radioOption.value}

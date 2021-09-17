@@ -1,0 +1,15 @@
+.checkBoxWrapper > h3 {
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+
+.checkBoxContainer {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 0;
+  gap: 0.4rem;
+}
+
+.checkBoxContainer > label {
+  font-size: 1.3rem;
+}
