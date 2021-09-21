@@ -65,3 +65,65 @@
   font-size: 1.5rem;
   margin-top: 2rem;
 }
+
+.selectSubject {
+  width: 50%;
+  /* background-color: red; */
+}
+/* media queries */
+
+@media screen and (max-width: 1000px) {
+  .selectSubject {
+    width: 55%;
+    /* background-color: red; */
+  }
+
+  .addSubjectBtn {
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(75, 75, 237);
+    color: white;
+    font-size: 1.2rem;
+    /* margin-top: 2rem; */
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .selectSubject {
+    width: 60%;
+    /* background-color: red; */
+  }
+
+  .addSubjectBtn {
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(75, 75, 237);
+    color: white;
+    font-size: 1rem;
+    /* margin-top: 2rem; */
+  }
+
+  .subjectWrapper > label {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .selectSubject {
+    width: 100%;
+    font-size: 0.8rem;
+    /* background-color: red; */
+  }
+
+  .addSubjectBtn {
+    padding: 0.5rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    background-color: rgb(75, 75, 237);
+    color: white;
+    font-size: 1rem;
+    /* margin-top: 2rem; */
+  }
+}

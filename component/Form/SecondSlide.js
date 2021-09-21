@@ -7,6 +7,7 @@ import MapBox from "../utils/MapBox";
 import Radio from "../utils/Radio";
 import ImageUpload from "../utils/ImageUpload";
 import CheckBox from "../utils/CheckBox";
+import GooglePlacesAutoComplete from "../utils/GooglePlacesAutoComplete";
 
 function CerticateView(props) {
   const [Arr, setArr] = React.useState([]);
@@ -38,12 +39,18 @@ function CerticateView(props) {
   );
 }
 
-export default memo(function SecondSlide() {
+// //////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export default memo(function SecondSlide(props) {
   const [eduStream, setEduStream] = React.useState("");
+  const [teachingMode, setTeachingMode] = React.useState([]);
+
   const [certificateView, setCertificateView] = React.useState(false);
   const [certificateCount, setCertificateCount] = React.useState(1);
 
-  console.log(eduStream, "edu");
+  const [locationArr, setLocationArr] = React.useState([]);
 
   return (
     <form className={styles.formContainer}>
@@ -53,9 +60,7 @@ export default memo(function SecondSlide() {
         label="Name of Your University/College"
         placeholder="for eg. Institute of business administration"
       />
-
       <TextInput type="number" label="CGPA" placeholder="for eg. 3.5" />
-
       <div className={styles.radioContainer}>
         <Radio
           options={[
@@ -69,22 +74,19 @@ export default memo(function SecondSlide() {
           onChange={setEduStream}
         />
       </div>
-
-      {eduStream === "o/a levels" && (
-        <>
-          <TextInput
-            type="text"
-            label="Grades in O levels"
-            placeholder="for eg. 5A* and 2Bs"
-          />
-          <TextInput
-            type="text"
-            label="Grades in A levels"
-            placeholder="for eg. 2A*"
-          />
-        </>
+      <>
+        <TextInput
+          type="text"
+          label="Grades in O levels"
+          placeholder="for eg. 5A* and 2Bs"
+        />
+        <TextInput
+          type="text"
+          label="Grades in A levels"
+          placeholder="for eg. 2A*"
+        />
+      </>
       )}
-
       {eduStream === "matric/intermediate" && (
         <>
           <TextInput
@@ -99,45 +101,49 @@ export default memo(function SecondSlide() {
           />
         </>
       )}
-
       <TextInput
         type="number"
         label="Experience (in year)"
         placeholder="for eg. 4 years"
       />
-
       <TextInput
         type="text"
         label="Did you teach in any school or college before? If Yes, enter the name of that school or college."
         placeholder="For eg. Happy Palace Grammer School"
       />
-
       <TextInput
         type="text"
         label="Specialisation"
         placeholder="For eg. Mathematics"
       />
-
       <TextInput
         type="text"
         label="Address"
         placeholder="For eg. Street 109, Nasheet Society, Block 12, Karachi"
       />
-
       <div className={styles.radioContainer}>
         <CheckBox
           options={["Online", "Physical", "Home-based"]}
           name="teaching-mode"
           title="Teaching Mode"
-          onChange={setEduStream}
+          onChange={setTeachingMode}
         />
       </div>
-
-      <div className={styles.mapContainer}>
-        <h3> Teaching Area </h3>
-        <MapBox />
-      </div>
-
+      {teachingMode.includes("Physical") && (
+        <div className={styles.mapContainer}>
+          <h3> Select all areas you want to teach at: </h3>
+          <GooglePlacesAutoComplete onLoadLatLng={setLocationArr} />
+          <MapBox locationArr={locationArr} />
+        </div>
+      )}
+      {teachingMode.includes("Home-based") && (
+        <div className={styles.mapContainer}>
+          <h3> Select Your Home Location: </h3>
+          {/* <GooglePlacesAutoComplete onLoadLatLng={setLocationArr} /> */}
+          <MapBox locationArr={locationArr} currentLocation={true} />
+        </div>
+      )}
+      {/* Certificate container */}
       <div className={styles.certificateContainer}>
         {!certificateView && (
           <button onClick={() => setCertificateView(true)}>

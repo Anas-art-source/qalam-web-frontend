@@ -8,7 +8,7 @@
 
 .imageUploadViewer {
   padding: 3rem;
-  width: 40rem;
+  width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -51,7 +51,7 @@
   margin-top: 1rem;
   background-image: var(--primary-gradient);
   color: white;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
 }
 
@@ -152,6 +152,7 @@
 @media screen and (max-width: 400px) {
   .imageUploadViewer {
     width: 18rem;
+    /* background-color: red; */
   }
 
   .uploadIcon {
@@ -160,12 +161,13 @@
 
   .imageWrapper {
     width: 11rem;
+    /* background-color: red; */
     height: 9rem;
   }
 
   .customButton {
-    width: 90%;
-    font-size: 1rem;
+    width: 100%;
+    font-size: 0.7rem;
   }
   .imageUploadViewer > p {
     font-size: 1.2rem;

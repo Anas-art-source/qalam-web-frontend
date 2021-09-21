@@ -7,7 +7,7 @@ import FirstSlide from "./FirstSlide";
 import SecondSlide from "./SecondSlide";
 import ThirdSlide from "./ThirdSlide";
 
-export default memo(function Form() {
+export default memo(function Form(props) {
   const [slide, setSlide] = React.useState(0);
 
   return (
