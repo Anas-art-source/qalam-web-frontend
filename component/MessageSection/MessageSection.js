@@ -6,8 +6,14 @@ import { Avatar } from "@material-ui/core";
 import AddReview from "../utils/AddReview";
 import useWindowSize from "../hook/useWindowSize";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import Socket from "../../socket/socket";
+import { useSelector } from "react-redux";
 
 export default memo(function MessageSection() {
+  // getting the user from the redux store
+  const user = useSelector((data) => data.user);
+
+  // this handles the responsive design of chat
   const { width } = useWindowSize();
   const [leftPlaneCls, setLeftPlaneCls] = React.useState(`${styles.leftPane}`);
   const [mainMessageContainerCls, setMainMessageContainerCls] = React.useState(
@@ -18,9 +24,9 @@ export default memo(function MessageSection() {
     () => {}
   );
 
+  // Js media queries for hiding and revealing chat for screens less than 900px
   React.useEffect(() => {
     if (width <= 900) {
-      console.log("we are here");
       if (leftPaneActive) {
         setLeftPlaneCls(`${styles.leftPane} ${styles.reveal}`);
         setMainMessageContainerCls(`${styles.hide}`);
@@ -36,6 +42,28 @@ export default memo(function MessageSection() {
       return () => setLeftPaneActive(false);
     });
   }, [width, leftPaneActive]);
+
+  // socket
+  const [socket, setSocket] = React.useState();
+
+  const [msg, setMsg] = React.useState();
+
+  console.log(msg, "mesaaagee");
+
+  React.useEffect(() => {
+    const s = new Socket("http://localhost:1000/messages", user.email);
+    setSocket(s);
+  }, []);
+
+  React.useEffect(() => {
+    if (!socket) return;
+    socket.recieveMessage(setMsg);
+  }, [socket]);
+
+  // socket for chat
+  function sendMessage() {
+    socket.sendMessage("hafsaasim.98@gmail.com", "hey anas");
+  }
 
   return (
     <section className={styles.messageSectionContainer}>
@@ -67,6 +95,7 @@ export default memo(function MessageSection() {
         </div>
 
         <div className={styles.chatFormContainer}>
+          <button onClick={sendMessage}>click me</button>
           <AddReview />
         </div>
       </div>

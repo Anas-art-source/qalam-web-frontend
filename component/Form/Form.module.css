@@ -1,5 +1,6 @@
 .formSection {
   width: 100%;
+  padding-bottom: 20rem;
 }
 
 .formContainer {
@@ -139,6 +140,7 @@
 .mainFormContainer {
   width: 100%;
   display: flex;
+
   /* transform: translateX(-33.33%); */
 }
 

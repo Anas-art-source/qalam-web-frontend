@@ -115,6 +115,7 @@ function TeacherHeader(props) {
             <h2>Provide us with your name and detail</h2>
             <FormFields
               label="Name"
+              onChange={() => {}}
               leftIcon={
                 <PersonOutlineIcon
                   style={{ color: "grey", fontSize: "2.5rem" }}
@@ -128,6 +129,7 @@ function TeacherHeader(props) {
             <FormFields
               label="Phone"
               type="phone"
+              onChange={() => {}}
               placeholder="Type Email Here"
               leftIcon={
                 <PhoneAndroidIcon

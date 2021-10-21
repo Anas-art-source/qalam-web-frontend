@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import ReactMapGL, { Marker, GeolocateControl } from "react-map-gl";
 import styles from "./MapBox.module.css";
-import { FaMapPin } from "react-icons/fa";
+import { FaMapPin, FaTimes } from "react-icons/fa";
 
 const attributionStyle = {
   right: 0,
@@ -23,38 +23,55 @@ export default memo(function MapBox(props) {
   });
 
   const [curLocation, setCurLocation] = React.useState({
+    type: "Point",
     longitude: 0,
     latitude: 0,
   });
 
   // based on the current location. However, it changes at the marker is dragged.
   const [userLocation, setUserLocation] = React.useState({
+    type: "Point",
     latitude: curLocation.latitude,
     longitude: curLocation.longitude,
   });
 
   // run on mount. Get the current location of user and store it in curLocation
   React.useEffect(() => {
+    console.log("HREE IN LOCATION");
     navigator.geolocation.getCurrentPosition(function (position) {
       setCurLocation({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      });
+      setUserLocation({
+        type: "Point",
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
       });
     });
   }, []);
 
+  // this will send the user home location to the 2 slide of form
   React.useEffect(() => {
-    //set the view point of the user on the bases of current user location
+    if (!props.onChangeHomeLocation) return;
+    props.onChangeHomeLocation(userLocation);
+  }, [props.onChangeHomeLocation, userLocation]);
+
+  console.log(curLocation, "CURENT LOCATION");
+  React.useEffect(() => {
+    //set the view point of the user on the bases of current user
+
+    if (!props.locationArr) return;
     setViewport((prevState) => {
       return {
         ...viewport,
         longitude:
           props.locationArr.length > 0
-            ? props.locationArr[props.locationArr.length - 1][0]
+            ? props.locationArr[props.locationArr.length - 1].coordinates[0]
             : curLocation.longitude,
         latitude:
           props.locationArr.length > 0
-            ? props.locationArr[props.locationArr.length - 1][1]
+            ? props.locationArr[props.locationArr.length - 1].coordinates[1]
             : curLocation.latitude,
       };
     });
@@ -79,7 +96,7 @@ export default memo(function MapBox(props) {
       <GeolocateControl
         style={geolocateControlStyle}
         positionOptions={{ enableHighAccuracy: true }}
-        trackUserLocation={true}
+        // trackUserLocation={true}
         auto
         onGeolocate={(data) => console.log(data)}
       />
@@ -88,8 +105,8 @@ export default memo(function MapBox(props) {
         <Marker
           latitude={userLocation.latitude}
           longitude={userLocation.longitude}
-          offsetLeft={-20}
-          offsetTop={-10}
+          offsetLeft={-25}
+          offsetTop={-50}
           draggable={true}
           onDragEnd={(e) =>
             setUserLocation({
@@ -98,21 +115,37 @@ export default memo(function MapBox(props) {
             })
           }
         >
-          <FaMapPin fontSize="2rem" />
+          <div className={styles.markerContainer}>
+            <div className={styles.markerLabel}>
+              <p>Your Home Location</p>
+            </div>
+            <FaMapPin fontSize="2rem" />
+          </div>
         </Marker>
       )}
 
       {!props.currentLocation &&
-        props.locationArr.map((point) => (
+        props.locationArr.map((point, index) => (
           <Marker
-            key={point[0]}
-            latitude={point[1]}
-            longitude={point[0]}
+            key={point.coordinates[0]}
+            latitude={point.coordinates[1]}
+            longitude={point.coordinates[0]}
             offsetLeft={-20}
             offsetTop={-10}
             // draggable={props.draggable}
           >
-            <FaMapPin fontSize="2rem" />
+            <div className={styles.markerContainer}>
+              <div className={styles.markerLabel}>
+                <p>{point.label.split(",")[0]}</p>
+                <div
+                  className={styles.closeBtn}
+                  onClick={() => props.deleteLocationHandler(index)}
+                >
+                  <FaTimes />
+                </div>
+              </div>
+              <FaMapPin fontSize="2rem" />
+            </div>
           </Marker>
         ))}
     </ReactMapGL>

@@ -1,0 +1,46 @@
+.slideWrapper {
+  padding: 4rem 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageWrapper {
+  margin: auto;
+  background-color: white;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow);
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.success_message {
+  font-size: 4rem;
+  text-transform: uppercase;
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: var(--primary-gradient);
+  color: transparent;
+}
+
+.error_message {
+  font-size: 4rem;
+  text-transform: uppercase;
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: var(--primary-error);
+  color: transparent;
+}
+
+.success_detail_message {
+  font-size: 1.6rem;
+  font-weight: normal;
+  text-align: center;
+}

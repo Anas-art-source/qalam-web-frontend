@@ -9,14 +9,17 @@ export default memo(function GooglePlacesAutoComplete(props) {
 
   //   console.log(process.env.NEXT_PUBLIC_GOOGLE_API_KEY, "GOOGLE PALCEAS");
 
-  console.log(value);
-
   React.useEffect(() => {
     async function getLatandLng(label) {
       const result = await geocodeByAddress(label);
       const { lat, lng } = await getLatLng(result[0]);
-      let tempArr = [lng, lat];
-      props.onLoadLatLng((prevState) => [...prevState, tempArr]);
+      let tempObj = {
+        type: "Point",
+        label: label,
+        coordinates: [lng, lat],
+      };
+      // let tempArr = [lng, lat];
+      props.onLoadLatLng((prevState) => [...prevState, tempObj]);
     }
 
     if (value) {

@@ -8,31 +8,24 @@ import Radio from "../utils/Radio";
 import ImageUpload from "../utils/ImageUpload";
 import CheckBox from "../utils/CheckBox";
 import GooglePlacesAutoComplete from "../utils/GooglePlacesAutoComplete";
+import { FaTimes } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 function CerticateView(props) {
-  const [Arr, setArr] = React.useState([]);
-
-  React.useEffect(() => {
-    // appends the Arr
-    // if there is any increase only incremental value is append -> this is why i = Arr.length is used
-    // it prevent same value being added again and again
-    for (let i = Arr.length; i < props.certificateCount; i++) {
-      setArr((prevState) => [...prevState, i]);
-    }
-  }, [props.certificateCount, setArr, Arr.length]);
+  console.log(props.certArr, "CERT ARR");
 
   return (
     <>
-      {Arr.map((i) => (
+      {props.certArr.map((i) => (
         <div key={i} className={styles.certContainer}>
           <TextInput
             label={`Certificate ${i + 1} Name`}
             placeholder="Google Marketing Analytics"
           />
 
-          <div className={styles.uploadContainer}>
-            <ImageUpload label={`Certificate ${i + 1}`} />
-          </div>
+          {/* <div className={styles.uploadContainer}>
+            <ImageUpload label={`Certificate ${i + 1}`} onChange={() => {}} />
+          </div> */}
         </div>
       ))}
     </>
@@ -44,13 +37,111 @@ function CerticateView(props) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export default memo(function SecondSlide(props) {
+  const [instituteName, setInstituteName] = React.useState("");
+  const [CGPA, setCGPA] = React.useState("");
   const [eduStream, setEduStream] = React.useState("");
+  const [percentageMatric, setPercentageMatric] = React.useState("");
+  const [percentageIntermediate, setPercentageIntermediate] =
+    React.useState("");
+  const [gradeOlevels, setGradeOlevels] = React.useState("");
+  const [gradeAlevels, setGradeAlevels] = React.useState("");
+  const [experienceYear, setExperienceYear] = React.useState(0);
+  const [experienceSchool, setExperienceSchool] = React.useState("");
+  const [specialisation, setSpecialisation] = React.useState("");
+  const [address, setAddress] = React.useState("");
   const [teachingMode, setTeachingMode] = React.useState([]);
+  const [homeBasedLocation, setHomeBasedLocation] = React.useState({
+    type: "Point",
+    latitude: 0,
+    longitute: 0,
+  });
+  // const [physicalTeachingLocations, setPhysicalTeachingLocations] =
+  // React.useState([]);
 
   const [certificateView, setCertificateView] = React.useState(false);
-  const [certificateCount, setCertificateCount] = React.useState(1);
+  const [certArr, setCertArr] = React.useState([]);
+  const [physicalTeachingLocationArr, setPhysicalTeachingLocationArr] =
+    React.useState([]);
 
-  const [locationArr, setLocationArr] = React.useState([]);
+  const formData = useSelector((data) => data.formData);
+
+  function deleteLocationHandler(i) {
+    setPhysicalTeachingLocationArr((prevState) => {
+      return prevState.filter((s, index) => index !== i);
+    });
+  }
+
+  React.useEffect(() => {
+    const data = {
+      instituteName,
+      CGPA,
+      educationStream: eduStream,
+      percentageMatric,
+      percentageIntermediate,
+      gradeOlevels,
+      gradeAlevels,
+      experienceYear,
+      experienceSchool,
+      specialisation,
+      address,
+      teachingMode,
+      physicalTeachingLocations: physicalTeachingLocationArr,
+      homeBasedLocation: {
+        type: "Point",
+        coordinates: [homeBasedLocation.longitude, homeBasedLocation.latitude],
+      },
+    };
+
+    props.onChange(data);
+    console.log(teachingMode.length);
+    if (eduStream && address && teachingMode.length > 0) {
+      return props.setSecondSlideValid(true);
+    } else {
+      props.setSecondSlideValid(false);
+    }
+  }, [
+    instituteName,
+    CGPA,
+    eduStream,
+    percentageMatric,
+    percentageIntermediate,
+    gradeOlevels,
+    gradeAlevels,
+    experienceYear,
+    experienceSchool,
+    specialisation,
+    address,
+    teachingMode,
+    physicalTeachingLocationArr,
+    homeBasedLocation,
+  ]);
+
+  React.useEffect(() => {
+    console.log(formData.teachingMode, "FORM DATA Teaching mode");
+
+    setInstituteName(formData.instituteName);
+    setCGPA(formData.CGPA);
+    setEduStream(formData.educationStream);
+    setPercentageMatric(formData.percentageMatric);
+    setPercentageIntermediate(formData.percentageIntermediate);
+    setGradeOlevels(formData.gradeOlevels);
+    setGradeAlevels(formData.gradeAlevels);
+    setExperienceYear(formData.experienceYear);
+    setExperienceSchool(formData.experienceSchool);
+    setSpecialisation(formData.specialisation);
+    setAddress(formData.address);
+    setTeachingMode(formData.teachingMode);
+    setPhysicalTeachingLocationArr(formData.physicalTeachingLocations);
+    setHomeBasedLocation(formData.homeBasedLocation);
+  }, [formData]);
+
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+
+    return () => {
+      window.scrollTo(0, 0);
+    };
+  }, []);
 
   return (
     <form className={styles.formContainer}>
@@ -59,8 +150,17 @@ export default memo(function SecondSlide(props) {
         type="text"
         label="Name of Your University/College"
         placeholder="for eg. Institute of business administration"
+        onChange={setInstituteName}
+        value={instituteName}
+        required={true}
       />
-      <TextInput type="number" label="CGPA" placeholder="for eg. 3.5" />
+      <TextInput
+        type="number"
+        label="CGPA"
+        placeholder="for eg. 3.5"
+        onChange={setCGPA}
+        value={CGPA}
+      />
       <div className={styles.radioContainer}>
         <Radio
           options={[
@@ -72,32 +172,48 @@ export default memo(function SecondSlide(props) {
           name="Education-Stream"
           title="Education Stream"
           onChange={setEduStream}
+          value={eduStream}
+          required={true}
         />
       </div>
-      <>
-        <TextInput
-          type="text"
-          label="Grades in O levels"
-          placeholder="for eg. 5A* and 2Bs"
-        />
-        <TextInput
-          type="text"
-          label="Grades in A levels"
-          placeholder="for eg. 2A*"
-        />
-      </>
+      {(eduStream === "o/a levels" || eduStream === "edexcel") && (
+        <>
+          <TextInput
+            type="text"
+            label="Grades in O levels"
+            placeholder="for eg. 5A* and 2Bs"
+            onChange={setGradeOlevels}
+            value={gradeOlevels}
+            required={true}
+          />
+          <TextInput
+            type="text"
+            label="Grades in A levels"
+            placeholder="for eg. 2A*"
+            onChange={setGradeAlevels}
+            value={gradeAlevels}
+            required={true}
+          />
+        </>
       )}
-      {eduStream === "matric/intermediate" && (
+
+      {(eduStream === "matric/intermediate" || eduStream === "aku board") && (
         <>
           <TextInput
             type="text"
             label="percentage in Matriculation"
             placeholder="for eg. 75%"
+            onChange={setPercentageMatric}
+            value={percentageMatric}
+            required={true}
           />
           <TextInput
             type="text"
             label="Percentage in Intermediate"
             placeholder="for eg. 80%"
+            onChange={setPercentageIntermediate}
+            value={percentageIntermediate}
+            required={true}
           />
         </>
       )}
@@ -105,21 +221,30 @@ export default memo(function SecondSlide(props) {
         type="number"
         label="Experience (in year)"
         placeholder="for eg. 4 years"
+        onChange={setExperienceYear}
+        value={experienceYear}
       />
       <TextInput
         type="text"
         label="Did you teach in any school or college before? If Yes, enter the name of that school or college."
         placeholder="For eg. Happy Palace Grammer School"
+        onChange={setExperienceSchool}
+        value={experienceSchool}
       />
       <TextInput
         type="text"
         label="Specialisation"
         placeholder="For eg. Mathematics"
+        onChange={setSpecialisation}
+        value={specialisation}
       />
       <TextInput
         type="text"
         label="Address"
         placeholder="For eg. Street 109, Nasheet Society, Block 12, Karachi"
+        onChange={setAddress}
+        value={address}
+        required={true}
       />
       <div className={styles.radioContainer}>
         <CheckBox
@@ -127,44 +252,94 @@ export default memo(function SecondSlide(props) {
           name="teaching-mode"
           title="Teaching Mode"
           onChange={setTeachingMode}
+          value={formData.teachingMode}
+          required={true}
         />
       </div>
       {teachingMode.includes("Physical") && (
         <div className={styles.mapContainer}>
           <h3> Select all areas you want to teach at: </h3>
-          <GooglePlacesAutoComplete onLoadLatLng={setLocationArr} />
-          <MapBox locationArr={locationArr} />
+          <GooglePlacesAutoComplete
+            onLoadLatLng={setPhysicalTeachingLocationArr}
+          />
+          {physicalTeachingLocationArr.map((obj, i) => (
+            <div className={styles.locationNamePlate} key={i}>
+              <h4>{obj.label}</h4>
+              <FaTimes
+                fontSize="inherit"
+                onClick={() => deleteLocationHandler(i)}
+              />
+            </div>
+          ))}
+          <MapBox
+            locationArr={physicalTeachingLocationArr}
+            deleteLocationHandler={deleteLocationHandler}
+          />
         </div>
       )}
       {teachingMode.includes("Home-based") && (
         <div className={styles.mapContainer}>
           <h3> Select Your Home Location: </h3>
           {/* <GooglePlacesAutoComplete onLoadLatLng={setLocationArr} /> */}
-          <MapBox locationArr={locationArr} currentLocation={true} />
+          <MapBox
+            // locationArr={locationArr}
+            currentLocation={true}
+            onChangeHomeLocation={(data) => setHomeBasedLocation(data)}
+          />
         </div>
       )}
       {/* Certificate container */}
-      <div className={styles.certificateContainer}>
+      {/* <div className={styles.certificateContainer}>
         {!certificateView && (
-          <button onClick={() => setCertificateView(true)}>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              setCertificateView(true);
+            }}
+          >
             Add Certificates
           </button>
         )}
 
         {certificateView && (
           <>
-            <CerticateView certificateCount={certificateCount} />
+            <CerticateView certArr={certArr} />
             <button
               onClick={(e) => {
                 e.preventDefault();
-                setCertificateCount((prevState) => prevState + 1);
+                setCertArr((prevState) => {
+                  const last = prevState[prevState.length - 1]
+                    ? prevState[prevState.length - 1] + 1
+                    : 1;
+                  return [...prevState, last];
+                });
               }}
             >
               Add More Certificates
             </button>
           </>
         )}
-      </div>
+      </div> */}
     </form>
   );
 });
+
+// {!certificateView && (
+//   <button onClick={() => setCertificateView(true)}>
+//     Add Certificates
+//   </button>
+// )}
+
+// {certificateView && (
+// <>
+//   <CerticateView certificateCount={certificateCount} />
+//   <button
+//     onClick={(e) => {
+//       e.preventDefault();
+//       setCertificateCount((prevState) => prevState + 1);
+//     }}
+//   >
+//     Add More Certificates
+//   </button>
+// </>
+// )}

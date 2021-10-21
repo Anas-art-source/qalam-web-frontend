@@ -15,6 +15,10 @@
   border-bottom: 4px solid var(--theme-primary-color);
 }
 
+.formFieldContainer_error {
+  border-bottom: 4px solid red;
+}
+
 .textInput {
   flex-basis: 80%;
   display: flex;

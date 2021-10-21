@@ -10,10 +10,14 @@ export default memo(function Modal(props) {
   return createPortal(
     <div className={styles.modalViewContainer}>
       <div
-        className={styles.backdrop}
+        className={props.backdropStyle ? props.backdropStyle : styles.backdrop}
         onClick={() => props.onClickBackDrop(false)}
       ></div>
-      <div className={styles.modalContainer}>{props.children}</div>
+      <div
+        className={props.modalStyle ? props.modalStyle : styles.modalContainer}
+      >
+        {props.children}
+      </div>
     </div>,
     document.getElementById("myportal")
   );

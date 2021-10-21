@@ -29,7 +29,7 @@ function PictureViewer(props) {
 
 export default function ImageUpload(props) {
   const fileRealBtnRef = React.useRef();
-  const [file, setFile] = React.useState();
+  // const [file, setFile] = React.useState();
   const [error, setError] = React.useState(false);
   const [filesArray, setFilesArray] = React.useState([]);
 
@@ -39,7 +39,7 @@ export default function ImageUpload(props) {
   }
 
   function uploadFileHandler() {
-    console.log(fileRealBtnRef.current.files.length, "fileeess");
+    // console.log(fileRealBtnRef.current.files.length, "fileeess");
 
     if (fileRealBtnRef.current.files.length > props.maxSize) {
       return setError(`Only ${props.maxSize} Photos are allowed`);
@@ -59,6 +59,18 @@ export default function ImageUpload(props) {
     arrayTemp = [];
     // console.log(fileArray, "FILE ARRAY DUMMY");
   }
+
+  // sending file to the parent component
+  React.useEffect(() => {
+    props.onChange(filesArray);
+  }, [filesArray]);
+
+  // taking files from the parent and updating file array
+  React.useEffect(() => {
+    if (!props.value) return;
+    console.log(props.value);
+    setFilesArray(props.value);
+  }, []);
 
   return (
     <div className={styles.imageUploadContainer}>

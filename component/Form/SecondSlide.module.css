@@ -52,6 +52,21 @@
   margin: auto;
 }
 
+.locationNamePlate {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  padding: 0.3rem 2rem;
+  margin: 0.3rem 0;
+  background-color: lightgray;
+}
+
+.locationNamePlate > h4 {
+  font-size: 1rem;
+  font-weight: normal;
+}
 /* media queries */
 
 @media screen and (max-width: 1000px) {

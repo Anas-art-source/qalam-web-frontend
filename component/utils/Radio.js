@@ -4,7 +4,9 @@ import styles from "./Radio.module.css";
 export default function Radio(props) {
   return (
     <div className={styles.radioController}>
-      <h4>{props.title}</h4>
+      <h4>
+        {props.title} {props.required ? "(Required)*" : ""}
+      </h4>
       {props.options.map((option) => (
         <div className={styles.formController} key={option}>
           <input
@@ -13,6 +15,7 @@ export default function Radio(props) {
             name={props.name}
             onChange={(e) => props.onChange(e.target.value)}
             value={option.toLowerCase()}
+            checked={props.value === option.toLowerCase()}
           />
           <label htmlFor="online">{option}</label>
         </div>

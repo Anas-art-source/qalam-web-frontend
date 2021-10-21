@@ -11,6 +11,13 @@
   height: 110vh;
 }
 
+.errorMessage {
+  padding: 1rem;
+  background-color: rgb(240, 113, 113);
+  text-align: center;
+  font-size: 1rem;
+}
+
 .middleContainer {
   margin-top: 3rem;
   width: 70%;
@@ -152,7 +159,6 @@
     width: 90%;
     max-width: 90%;
     height: 100%;
-
   }
 
   .leftContainer {

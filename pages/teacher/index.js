@@ -4,7 +4,9 @@ import TeacherListSection from "../../component/TeacherListSection/TeacherListSe
 import TeacherHeroSection from "../../component/TeacherHeroSection/TeacherHeroSection";
 import Footer from "../../component/Footer/Footer";
 
-export default function index() {
+export default function index(props) {
+  console.log(props.teachers, "PROPS DOT TEACHER");
+
   return (
     <>
       <Header active={true} />
@@ -15,4 +17,21 @@ export default function index() {
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const res = await fetch("http://localhost:1000/api/v1/teacher");
+  const teachers = await res.json();
+
+  console.log(teachers, "TEACHERS");
+
+  // By returning { props: { posts } }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      teachers,
+    },
+  };
 }

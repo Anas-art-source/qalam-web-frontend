@@ -47,6 +47,12 @@ export default memo(function Avatar(props) {
     };
   }
 
+  if (props.loader === "qalam") {
+    myLoader = ({ src, width, quality }) => {
+      return `${props.src}?w=${props.width}&q=${props.quality || 75}`;
+    };
+  }
+
   return (
     <div
       style={{

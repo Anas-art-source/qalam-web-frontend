@@ -18,7 +18,7 @@ function Footer() {
         <FaTwitter style={{ fontSize: "2rem", margin: "0 1rem" }} />
       </div>
 
-      <div className={styles.detailContainer}></div>
+      {/* <div className={styles.detailContainer}></div> */}
     </section>
   );
 }

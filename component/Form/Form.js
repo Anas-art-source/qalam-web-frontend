@@ -6,9 +6,97 @@ import { IoIosBook } from "react-icons/io";
 import FirstSlide from "./FirstSlide";
 import SecondSlide from "./SecondSlide";
 import ThirdSlide from "./ThirdSlide";
+import ConclusionSlide from "./ConclusionSlide";
+import useFetch from "../hook/useFetch";
+import { useDispatch } from "react-redux";
+import { formDataActions } from "../../store/formData";
 
 export default memo(function Form(props) {
   const [slide, setSlide] = React.useState(0);
+  const [submit, setSubmit] = React.useState(false);
+  const { sendRequest, isLoading, isValid, setError, error, setIsValid } =
+    useFetch();
+  const dispatch = useDispatch();
+  const [firstSlideValid, setFirstSlideValid] = React.useState(false);
+  const [secondSlideValid, setSecondSlideValid] = React.useState(false);
+
+  console.log(firstSlideValid, "FIRST SLIDE IS VALID");
+
+  const [formData, setFormData] = React.useState({
+    name: "",
+    cnicNumber: "",
+    description: "",
+    CNICpictures: "",
+    userPicture: "",
+    coverPicture: "",
+    instituteName: "",
+    CGPA: 0,
+    educationStream: "",
+    percentageMatric: "",
+    percentageIntermediate: "",
+    gradeOlevels: "",
+    gradeAlevels: "",
+    experienceYear: 0,
+    experienceSchool: "",
+    specialisation: "",
+    address: "",
+    teachingMode: [],
+    homeBasedLocation: {},
+    physicalTeachingLocations: [],
+    certificatesName: [],
+    certificatePictures: [],
+    streams: [],
+    active: false,
+  });
+
+  async function submitFormHandler() {
+    const fd = new FormData();
+    fd.append("name", formData.name);
+    fd.append("cnicNumber", formData.cnicNumber);
+    fd.append("description", formData.description);
+    formData.CNICpictures.forEach((file, index) => {
+      fd.append("CNICpictures", file);
+    });
+    if (formData.userPicture !== undefined) {
+      fd.append("userPicture", formData.userPicture[0]);
+    }
+    if (formData.coverPicture !== undefined) {
+      fd.append("coverPicture", formData.coverPicture[0]);
+    }
+    fd.append("instituteName", formData.instituteName);
+    fd.append("CGPA", formData.CGPA);
+    fd.append("educationStream", formData.educationStream);
+    fd.append("percentageMatric", formData.percentageMatric);
+    fd.append("percentageIntermediate", formData.percentageIntermediate);
+    fd.append("gradeOlevels", formData.gradeOlevels);
+    fd.append("gradeAlevels", formData.gradeAlevels);
+    fd.append("experienceYear", formData.experienceYear);
+    fd.append("experienceSchool", formData.experienceSchool);
+    fd.append("specialisation", formData.specialisation);
+    fd.append("address", formData.address);
+    fd.append("teachingMode", JSON.stringify(formData.teachingMode));
+    fd.append("homeBasedLocation", JSON.stringify(formData.homeBasedLocation));
+    fd.append(
+      "physicalTeachingLocations",
+      JSON.stringify(formData.physicalTeachingLocations)
+    );
+    fd.append("streams", JSON.stringify(formData.streams));
+    fd.append("active", formData.active);
+
+    console.log(formData, "SUNNY");
+    const response = await sendRequest(
+      `http://localhost:1000/api/v1/teacher`,
+      "POST",
+      fd,
+      true
+    );
+
+    console.log(response, "RESPONSE AT FORM ");
+  }
+
+  // React.useEffect(() => {
+  //   dispatch(formDataActions.update(formData));
+  // }, [formData]);
 
   return (
     <section className={styles.formSection}>
@@ -112,12 +200,12 @@ export default memo(function Form(props) {
 
         {/* error container */}
 
-        <div className={styles.errorContainer}>
+        {/* <div className={styles.errorContainer}>
           <p>
             Please Enter valid phone number and you might have forgotten to
             enter your name
           </p>
-        </div>
+        </div> */}
 
         {/* form container */}
 
@@ -126,13 +214,39 @@ export default memo(function Form(props) {
             className={styles.mainFormContainer}
             // style={{ transform: `translateX(-${33.333 * slide}%)` }}
           >
-            {slide === 0 && <FirstSlide />}
+            {slide === 0 && (
+              <FirstSlide
+                setFirstSlideValid={setFirstSlideValid}
+                onChange={(data) =>
+                  setFormData((prevState) => {
+                    return { ...prevState, ...data };
+                  })
+                }
+              />
+            )}
             {slide === 1 && (
               // <div className={styles.slide}>
-              <SecondSlide />
+              <SecondSlide
+                setSecondSlideValid={setSecondSlideValid}
+                onChange={(data) =>
+                  setFormData((prevState) => {
+                    return { ...prevState, ...data };
+                  })
+                }
+              />
               // </div>
             )}
-            {slide === 2 && <ThirdSlide />}
+            {slide === 2 && (
+              <ThirdSlide
+                onChange={(data) => {
+                  setFormData((prevState) => {
+                    return { ...prevState, streams: data };
+                  });
+                }}
+              />
+            )}
+
+            {slide === 3 && <ConclusionSlide error={error} />}
           </div>
         </div>
 
@@ -146,10 +260,29 @@ export default memo(function Form(props) {
             </button>
           )}
 
-          {slide < 2 && (
+          {slide === 0 && (
             <button
-              onClick={() => setSlide((prevState) => prevState + 1)}
+              disabled={!firstSlideValid}
+              onClick={() => {
+                dispatch(formDataActions.update(formData));
+                setSlide((prevState) => prevState + 1);
+              }}
               className={`${styles.btn} ${styles.nextBtn}`}
+              // disabled={true}
+            >
+              Next
+            </button>
+          )}
+
+          {slide === 1 && (
+            <button
+              disabled={!secondSlideValid}
+              onClick={() => {
+                dispatch(formDataActions.update(formData));
+                setSlide((prevState) => prevState + 1);
+              }}
+              className={`${styles.btn} ${styles.nextBtn}`}
+              // disabled={true}
             >
               Next
             </button>
@@ -157,10 +290,24 @@ export default memo(function Form(props) {
 
           {slide === 2 && (
             <button
-              onClick={() => setSlide((prevState) => prevState + 1)}
+              onClick={async () => {
+                setSlide((prevState) => prevState + 1);
+                await submitFormHandler();
+              }}
               className={`${styles.btn} ${styles.submitBtn}`}
             >
               Submit
+            </button>
+          )}
+
+          {slide === 3 && (
+            <button
+              onClick={async () => {
+                setSlide(0);
+              }}
+              className={`${styles.btn} ${styles.submitBtn}`}
+            >
+              Start Again
             </button>
           )}
         </div>
