@@ -10,6 +10,7 @@ import CheckBox from "../utils/CheckBox";
 import GooglePlacesAutoComplete from "../utils/GooglePlacesAutoComplete";
 import { FaTimes } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import AssignmentSubject from "../utils/AssignmentSubject";
 
 function CerticateView(props) {
   console.log(props.certArr, "CERT ARR");
@@ -58,10 +59,15 @@ export default memo(function SecondSlide(props) {
   // const [physicalTeachingLocations, setPhysicalTeachingLocations] =
   // React.useState([]);
 
+  console.log(eduStream, "educational stream");
+
   const [certificateView, setCertificateView] = React.useState(false);
   const [certArr, setCertArr] = React.useState([]);
   const [physicalTeachingLocationArr, setPhysicalTeachingLocationArr] =
     React.useState([]);
+  const [assignmentSubjects, setAssignmentSubjects] = React.useState([""]);
+
+  console.log(assignmentSubjects, "<<<ASSIGNMENT SUBJECTS IN SECOND SLIDE");
 
   const formData = useSelector((data) => data.formData);
 
@@ -86,6 +92,7 @@ export default memo(function SecondSlide(props) {
       address,
       teachingMode,
       physicalTeachingLocations: physicalTeachingLocationArr,
+      assignmentSubjects,
       homeBasedLocation: {
         type: "Point",
         coordinates: [homeBasedLocation.longitude, homeBasedLocation.latitude],
@@ -93,7 +100,7 @@ export default memo(function SecondSlide(props) {
     };
 
     props.onChange(data);
-    console.log(teachingMode.length);
+    // console.log(teachingMode.length);
     if (eduStream && address && teachingMode.length > 0) {
       return props.setSecondSlideValid(true);
     } else {
@@ -114,6 +121,7 @@ export default memo(function SecondSlide(props) {
     teachingMode,
     physicalTeachingLocationArr,
     homeBasedLocation,
+    assignmentSubjects,
   ]);
 
   React.useEffect(() => {
@@ -162,10 +170,12 @@ export default memo(function SecondSlide(props) {
         value={CGPA}
       />
       <div className={styles.radioContainer}>
-        <Radio
+        {/* <Radio
           options={[
-            "O/A levels",
-            "Matric/Intermediate",
+            "O Levels",
+            "A Levels",
+            "Matriculation",
+            "Intermediate",
             "AKU Board",
             "Edexcel",
           ]}
@@ -174,9 +184,18 @@ export default memo(function SecondSlide(props) {
           onChange={setEduStream}
           value={eduStream}
           required={true}
+        /> */}
+
+        <CheckBox
+          options={["O levels", "A levels", "Matriculations", "Intermediate"]}
+          name="Education-Stream"
+          title="Education Stream"
+          onChange={setEduStream}
+          value={formData.educationStream}
+          required={true}
         />
       </div>
-      {(eduStream === "o/a levels" || eduStream === "edexcel") && (
+      {eduStream.includes("O levels") && (
         <>
           <TextInput
             type="text"
@@ -186,6 +205,10 @@ export default memo(function SecondSlide(props) {
             value={gradeOlevels}
             required={true}
           />
+        </>
+      )}
+      {eduStream.includes("A levels") && (
+        <>
           <TextInput
             type="text"
             label="Grades in A levels"
@@ -197,7 +220,7 @@ export default memo(function SecondSlide(props) {
         </>
       )}
 
-      {(eduStream === "matric/intermediate" || eduStream === "aku board") && (
+      {eduStream.includes("Matriculations") && (
         <>
           <TextInput
             type="text"
@@ -207,6 +230,11 @@ export default memo(function SecondSlide(props) {
             value={percentageMatric}
             required={true}
           />
+        </>
+      )}
+
+      {eduStream.includes("Intermediate") && (
+        <>
           <TextInput
             type="text"
             label="Percentage in Intermediate"
@@ -217,6 +245,7 @@ export default memo(function SecondSlide(props) {
           />
         </>
       )}
+
       <TextInput
         type="number"
         label="Experience (in year)"
@@ -248,7 +277,7 @@ export default memo(function SecondSlide(props) {
       />
       <div className={styles.radioContainer}>
         <CheckBox
-          options={["Online", "Physical", "Home-based"]}
+          options={["Online", "Physical", "Home-based", "Assignment Helper"]}
           name="teaching-mode"
           title="Teaching Mode"
           onChange={setTeachingMode}
@@ -288,6 +317,21 @@ export default memo(function SecondSlide(props) {
           />
         </div>
       )}
+
+      {/* Assignment subject name */}
+
+      {teachingMode.includes("Assignment Helper") && (
+        <>
+          <h2 className={styles.header}>Assignment Subjects</h2>
+          <AssignmentSubject
+            onChange={(assignmentSubArr) =>
+              setAssignmentSubjects(assignmentSubArr)
+            }
+            value={formData.assignmentSubjects}
+          />
+        </>
+      )}
+
       {/* Certificate container */}
       {/* <div className={styles.certificateContainer}>
         {!certificateView && (

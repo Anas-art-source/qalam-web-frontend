@@ -17,15 +17,15 @@ function ServiceSection() {
       <div className={styles.serviceCardContainer}>
         <ServiceCard
           heading="Home Tutors"
-          onClick={() => router.push("/teacher")}
+          onClick={() => router.push("/home-tutors")}
         />
         <ServiceCard
           heading="Home-based Tutors"
-          onClick={() => router.push("/teacher")}
+          onClick={() => router.push("/homebased-tutors")}
         />
         <ServiceCard
           heading="Assignment Helpers"
-          onClick={() => router.push("/teacher")}
+          onClick={() => router.push("/assignment-helper")}
         />
       </div>
     </div>

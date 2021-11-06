@@ -67,6 +67,14 @@
   font-size: 1rem;
   font-weight: normal;
 }
+
+.header {
+  font-size: 1.5rem;
+  font-weight: normal;
+  /* background-color: cornflowerblue; */
+  display: inline-block;
+}
+
 /* media queries */
 
 @media screen and (max-width: 1000px) {

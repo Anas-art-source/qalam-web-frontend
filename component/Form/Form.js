@@ -10,6 +10,7 @@ import ConclusionSlide from "./ConclusionSlide";
 import useFetch from "../hook/useFetch";
 import { useDispatch } from "react-redux";
 import { formDataActions } from "../../store/formData";
+import { useSelector } from "react-redux";
 
 export default memo(function Form(props) {
   const [slide, setSlide] = React.useState(0);
@@ -19,7 +20,7 @@ export default memo(function Form(props) {
   const dispatch = useDispatch();
   const [firstSlideValid, setFirstSlideValid] = React.useState(false);
   const [secondSlideValid, setSecondSlideValid] = React.useState(false);
-
+  const user = useSelector((data) => data.user);
   console.log(firstSlideValid, "FIRST SLIDE IS VALID");
 
   const [formData, setFormData] = React.useState({
@@ -41,12 +42,14 @@ export default memo(function Form(props) {
     specialisation: "",
     address: "",
     teachingMode: [],
-    homeBasedLocation: {},
+    homeBasedLocation: "",
     physicalTeachingLocations: [],
     certificatesName: [],
     certificatePictures: [],
     streams: [],
+    assignmentSubjects: [],
     active: false,
+    userId: "",
   });
 
   async function submitFormHandler() {
@@ -65,7 +68,7 @@ export default memo(function Form(props) {
     }
     fd.append("instituteName", formData.instituteName);
     fd.append("CGPA", formData.CGPA);
-    fd.append("educationStream", formData.educationStream);
+    fd.append("educationStream", JSON.stringify(formData.educationStream));
     fd.append("percentageMatric", formData.percentageMatric);
     fd.append("percentageIntermediate", formData.percentageIntermediate);
     fd.append("gradeOlevels", formData.gradeOlevels);
@@ -74,14 +77,25 @@ export default memo(function Form(props) {
     fd.append("experienceSchool", formData.experienceSchool);
     fd.append("specialisation", formData.specialisation);
     fd.append("address", formData.address);
-    fd.append("teachingMode", JSON.stringify(formData.teachingMode));
-    fd.append("homeBasedLocation", JSON.stringify(formData.homeBasedLocation));
     fd.append(
       "physicalTeachingLocations",
       JSON.stringify(formData.physicalTeachingLocations)
     );
+    fd.append("teachingMode", JSON.stringify(formData.teachingMode));
+
+    if (formData.teachingMode.includes("Home-based")) {
+      fd.append(
+        "homeBasedLocation",
+        JSON.stringify(formData.homeBasedLocation)
+      );
+    }
     fd.append("streams", JSON.stringify(formData.streams));
     fd.append("active", formData.active);
+    fd.append("userId", user._id);
+    fd.append(
+      "assignmentSubjects",
+      JSON.stringify(formData.assignmentSubjects)
+    );
 
     console.log(formData, "SUNNY");
     const response = await sendRequest(

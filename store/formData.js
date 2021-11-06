@@ -21,6 +21,7 @@ const initialState = {
   certificatesName: [],
   certificatePictures: [],
   streams: [],
+  assignmentSubjects: [""],
   active: false,
 };
 

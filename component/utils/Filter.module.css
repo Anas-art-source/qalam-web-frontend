@@ -37,6 +37,22 @@
   display: none;
 }
 
+.applyButton {
+  width: 80%;
+  padding: 1rem 1.2rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  border: none;
+  background-color: rgb(44, 106, 220);
+  color: white;
+  border-radius: 100px;
+  margin-top: 1rem;
+}
+
+.applyButton:hover {
+  background-color: rgb(12, 68, 170);
+}
+
 /* media queries */
 
 @media screen and (max-width: 1600px) {

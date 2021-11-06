@@ -32,14 +32,56 @@ function TeacherListSection() {
           </button>
         </div>
         <div className={styles.teachersContainer}>
-          <TeacherItem onClick={() => router.push("/teacher/dasgrat")} />
-          <TeacherItem onClick={() => router.push("/teacher/dasgrat")} />
-          <TeacherItem onClick={() => router.push("/teacher/dasgrat")} />
-          <TeacherItem onClick={() => router.push("/teacher/dasgrat")} />
-          <TeacherItem onClick={() => router.push("/teacher/dasgrat")} />
-          <TeacherItem onClick={() => router.push("/teacher/dasgrat")} />
-          <TeacherItem onClick={() => router.push("/teacher/dasgrat")} />
-          <TeacherItem onClick={() => router.push("/teacher/dasgrat")} />
+          <TeacherItem
+            onClick={() => {
+              router.push(`${router.pathname}/teacherSlug`);
+            }}
+          />
+          <TeacherItem
+            onClick={() => {
+              router.push(`${router.pathname}/teacherSlug`);
+            }}
+          />
+          <TeacherItem
+            onClick={() => {
+              router.push(`${router.pathname}/teacherSlug`);
+            }}
+          />
+          <TeacherItem
+            onClick={() => {
+              router.push(`${router.pathname}/teacherSlug`);
+            }}
+          />
+          <TeacherItem
+            onClick={() => {
+              router.push(`${router.pathname}/teacherSlug`);
+            }}
+          />
+          <TeacherItem
+            onClick={() => {
+              router.push(`${router.pathname}/teacherSlug`);
+            }}
+          />
+          <TeacherItem
+            onClick={() => {
+              router.push(`${router.pathname}/teacherSlug`);
+            }}
+          />
+          <TeacherItem
+            onClick={() => {
+              router.push(`${router.pathname}/teacherSlug`);
+            }}
+          />
+          <TeacherItem
+            onClick={() => {
+              router.push(`${router.pathname}/teacherSlug`);
+            }}
+          />
+          <TeacherItem
+            onClick={() => {
+              router.push(`${router.pathname}/teacherSlug`);
+            }}
+          />
         </div>
       </div>
     </section>
