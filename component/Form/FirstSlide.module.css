@@ -39,6 +39,20 @@
   justify-content: center;
 }
 
+.inputHeader {
+  font-size: 1.4rem;
+  /* padding: 0.6rem 0 0.1rem 0; */
+  /* background-color: red; */
+  font-weight: normal;
+}
+
+.input {
+  /* padding: 0.6rem; */
+  width: 90%;
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+
 /* media queries */
 
 @media screen and (max-width: 700px) {

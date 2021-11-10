@@ -23,7 +23,6 @@ function UserOptionModal(props) {
   const dispatch = useDispatch();
 
   async function logoutHandler() {
-    console.log(process.env, "PROCESS");
     const response = await sendRequest(
       `http://localhost:1000/api/v1/actions/logout`,
       "POST"
@@ -68,8 +67,6 @@ function HeaderLarge(props) {
   const { sendRequest, isLoading, isValid, setError, error, setIsValid } =
     useFetch();
 
-  console.log(props.user, "USER PROP IN LARGE HEADER");
-
   async function uploadProfilePictureHandler() {
     // api endpoint for patching the user picture
     const formData = new FormData();
@@ -88,6 +85,7 @@ function HeaderLarge(props) {
       dispatch(userActions.login(response.data));
     }
 
+    // router.reload();
     setUploadPictureModal(false);
   }
 

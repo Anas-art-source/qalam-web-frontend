@@ -20,9 +20,11 @@ function Filter(props) {
   const [ratingQuery, setRatingQuery] = React.useState("");
   const router = useRouter();
 
-  console.log(query, distance, ratingQuery);
-
   function sendQuery() {
+    // closing the filter box for smaller screens
+    props.setFilterActive(false);
+
+    // setting up query
     let queryCat;
     let queryDistance;
     let queryRating;
@@ -38,8 +40,8 @@ function Filter(props) {
       queryRating = `${ratingQuery}`;
     }
 
-    console.log(query, distance, ratingQuery, queryCat, "QUERY ON SEND");
-
+    // sending query and redirecting to /all pages
+    // /all page will make an api call
     router.push({
       pathname: "/all",
       query: {
@@ -98,7 +100,7 @@ function Filter(props) {
           />
           <CategoryButton
             value="Assignment Helpers"
-            slug="assignment-helper"
+            slug="Assignment Helper"
             onSet={(val) => setQuery((prevState) => [...prevState, val])}
             onDelete={(val) =>
               setQuery((prevState) => prevState.filter((q) => q != val))

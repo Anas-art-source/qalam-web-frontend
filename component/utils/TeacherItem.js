@@ -10,7 +10,7 @@ function TeacherItem(props) {
       <div className={styles.coverImageContainer}></div>
       <div className={styles.displayImageContainer}></div>
       <div className={styles.namePlate}>
-        <h3>Anas Khan</h3>
+        <h3>{props.teacher.name}</h3>
       </div>
       <div className={styles.queryContainer}>
         <Label field="O level" subject="Economics" />
@@ -22,13 +22,15 @@ function TeacherItem(props) {
 
       <div className={styles.footerContainer}>
         <div className={styles.ratingContainer}>
-          <GradeIcon style={{ fontSize: "2rem", color: "orange" }} />
-          <p>4.5 (34)</p>
+          <GradeIcon style={{ fontSize: "1.5rem", color: "orange" }} />
+          <p>
+            {props.teacher.ratingAverage} ({props.teacher.rating})
+          </p>
         </div>
 
-        <div className={styles.ratingContainer}>
-          <LocationOnIcon style={{ fontSize: "2rem", color: "red" }} />
-          <p className={styles.address}>M.A Jinnah Road, karachi</p>
+        <div className={styles.addressContainer}>
+          <LocationOnIcon style={{ fontSize: "1.5rem", color: "red" }} />
+          <p className={styles.address}>{props.teacher.address}</p>
         </div>
       </div>
     </li>

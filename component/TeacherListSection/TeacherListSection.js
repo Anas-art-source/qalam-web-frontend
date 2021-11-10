@@ -6,7 +6,7 @@ import Filter from "../utils/Filter";
 import { useRouter } from "next/router";
 import { BsFilter } from "react-icons/bs";
 
-function TeacherListSection() {
+function TeacherListSection(props) {
   const [filterActive, setFilterActive] = React.useState(false);
   const router = useRouter();
 
@@ -32,56 +32,14 @@ function TeacherListSection() {
           </button>
         </div>
         <div className={styles.teachersContainer}>
-          <TeacherItem
-            onClick={() => {
-              router.push(`${router.pathname}/teacherSlug`);
-            }}
-          />
-          <TeacherItem
-            onClick={() => {
-              router.push(`${router.pathname}/teacherSlug`);
-            }}
-          />
-          <TeacherItem
-            onClick={() => {
-              router.push(`${router.pathname}/teacherSlug`);
-            }}
-          />
-          <TeacherItem
-            onClick={() => {
-              router.push(`${router.pathname}/teacherSlug`);
-            }}
-          />
-          <TeacherItem
-            onClick={() => {
-              router.push(`${router.pathname}/teacherSlug`);
-            }}
-          />
-          <TeacherItem
-            onClick={() => {
-              router.push(`${router.pathname}/teacherSlug`);
-            }}
-          />
-          <TeacherItem
-            onClick={() => {
-              router.push(`${router.pathname}/teacherSlug`);
-            }}
-          />
-          <TeacherItem
-            onClick={() => {
-              router.push(`${router.pathname}/teacherSlug`);
-            }}
-          />
-          <TeacherItem
-            onClick={() => {
-              router.push(`${router.pathname}/teacherSlug`);
-            }}
-          />
-          <TeacherItem
-            onClick={() => {
-              router.push(`${router.pathname}/teacherSlug`);
-            }}
-          />
+          {props.teachers.body.map((teacher) => (
+            <TeacherItem
+              teacher={teacher}
+              onClick={() => {
+                router.push(`${router.pathname}/${teacher.slug}`);
+              }}
+            />
+          ))}
         </div>
       </div>
     </section>

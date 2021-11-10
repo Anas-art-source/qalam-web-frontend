@@ -12,7 +12,7 @@ function CategoryButton(props) {
       return props.onSet([
         position.coords.latitude,
         position.coords.longitude,
-        10,
+        6.21371,
       ]);
     });
   }
@@ -22,9 +22,11 @@ function CategoryButton(props) {
     inputRef.current.addEventListener("change", (e) => {
       setChecked(e.target.checked);
       if (e.target.checked) {
+        // if there is a geospatial query such as near me
         if (props.slug === "near-me") {
           currentLocation();
         }
+        // if there is normal filtering such as categories
         props.onSet(props.slug);
       } else {
         props.onDelete(props.slug);

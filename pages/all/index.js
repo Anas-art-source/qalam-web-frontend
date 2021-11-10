@@ -13,7 +13,7 @@ export default function index(props) {
 
       {/* teacher hero section is commented out now it will be used later when the need will arise */}
       {/* <TeacherHeroSection /> */}
-      <TeacherListSection />
+      <TeacherListSection teachers={props.teachers} />
       <Footer />
     </>
   );
@@ -28,7 +28,11 @@ export async function getServerSideProps(context) {
   // this code block will look if the query object contains something.
   if (Object.keys(query).length > 0) {
     res = await fetch(
-      `http://localhost:1000/api/v1/teacher?categories=${query.categories}&distance=${query.distance}&rating=${query.rating}`
+      `http://localhost:1000/api/v1/teacher?${
+        query.categories ? `categories=${query.categories}` : ""
+      }${query.distance ? `&distance=${query.distance}` : ""}${
+        query.rating ? `&rating=${query.rating}` : ""
+      }`
     );
   } else {
     res = await fetch(`http://localhost:1000/api/v1/teacher`);

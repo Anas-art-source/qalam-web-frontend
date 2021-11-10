@@ -21,7 +21,6 @@ export default memo(function Form(props) {
   const [firstSlideValid, setFirstSlideValid] = React.useState(false);
   const [secondSlideValid, setSecondSlideValid] = React.useState(false);
   const user = useSelector((data) => data.user);
-  console.log(firstSlideValid, "FIRST SLIDE IS VALID");
 
   const [formData, setFormData] = React.useState({
     name: "",
@@ -30,6 +29,7 @@ export default memo(function Form(props) {
     CNICpictures: "",
     userPicture: "",
     coverPicture: "",
+    introductionVideo: "",
     instituteName: "",
     CGPA: 0,
     educationStream: "",
@@ -104,8 +104,6 @@ export default memo(function Form(props) {
       fd,
       true
     );
-
-    console.log(response, "RESPONSE AT FORM ");
   }
 
   // React.useEffect(() => {
