@@ -13,27 +13,30 @@ export default function index(props) {
 
       {/* teacher hero section is commented out now it will be used later when the need will arise */}
       {/* <TeacherHeroSection /> */}
-      <TeacherListSection />
+      <TeacherListSection teachers={props.data} />
       <Footer />
     </>
   );
 }
 
-export async function getStaticProps() {
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
+export async function getStaticProps(context) {
   const res = await fetch(
-    "http://localhost:1000/api/v1/teacher?assignment-helper"
+    `http://localhost:1000/api/v1/teacher?categories=Assignment Helper`
   );
-  const teachers = await res.json();
+  let data = await res.json();
+  console.log(data, "CCA");
 
-  console.log(teachers, "TEACHERS");
+  // if (!data) {
+  //   return {
+  //     redirect: {
+  //       destination: "/",
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
   return {
-    props: {
-      teachers,
-    },
+    props: { data },
+    revalidate: 20, // will be passed to the page component as props
   };
 }

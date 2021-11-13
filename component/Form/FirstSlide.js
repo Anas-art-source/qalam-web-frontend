@@ -13,6 +13,7 @@ export default memo(function FirstSlide(props) {
   const [CNICpictures, setCNICpictures] = React.useState([]);
   const [displayPicture, setDisplayPicture] = React.useState([]);
   const [coverPicture, setCoverPicture] = React.useState([]);
+  const [contactNumber, setContactNumber] = React.useState("");
   const [introductionVideo, setIntroductionVideo] = React.useState("");
 
   // taking the formData on mount and populating the field
@@ -29,12 +30,13 @@ export default memo(function FirstSlide(props) {
       userPicture: displayPicture,
       coverPicture: coverPicture,
       introductionVideo,
+      contactNumber,
     };
 
     props.onChange(data);
 
     // controls whether form can be proceed or not
-    if (name && CNIC && CNICpictures && introductionVideo) {
+    if (name && CNIC && CNICpictures && introductionVideo && contactNumber) {
       return props.setFirstSlideValid(true);
     } else {
       props.setFirstSlideValid(false);
@@ -47,6 +49,7 @@ export default memo(function FirstSlide(props) {
     displayPicture,
     coverPicture,
     introductionVideo,
+    contactNumber,
   ]);
 
   React.useEffect(() => {
@@ -57,6 +60,7 @@ export default memo(function FirstSlide(props) {
     setDisplayPicture(formData.displayPicture || user.userPicture);
     setCoverPicture(formData.coverPicture);
     setIntroductionVideo(formData.introductionVideo);
+    setContactNumber(formData.contactNumber);
   }, [formData, user]);
 
   React.useEffect(() => {
@@ -103,6 +107,15 @@ export default memo(function FirstSlide(props) {
           value={description}
         />
       </div>
+
+      <TextInput
+        label="Contact Number"
+        placeholder="for eg, 0349-1834975"
+        type="text"
+        required={true}
+        onChange={setContactNumber}
+        value={contactNumber}
+      />
 
       <TextInput
         label="Youtube Introduction Video Link"

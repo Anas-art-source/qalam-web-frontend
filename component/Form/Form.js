@@ -96,8 +96,9 @@ export default memo(function Form(props) {
       "assignmentSubjects",
       JSON.stringify(formData.assignmentSubjects)
     );
+    fd.append("introductionVideo", formData.introductionVideo);
+    fd.append("contactNumber", formData.contactNumber);
 
-    console.log(formData, "SUNNY");
     const response = await sendRequest(
       `http://localhost:1000/api/v1/teacher`,
       "POST",

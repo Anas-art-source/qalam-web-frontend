@@ -17,28 +17,32 @@
 .coverImageContainer {
   width: 30rem;
   height: 15rem;
-  background-image: url("../../assets//cover.jpg");
-  background-size: cover;
+  /* background-image: url("../../assets//cover.jpg"); */
+  /* background-size: cover; */
+  object-fit: cover;
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  /* position: relative; */
+  object-fit: fit;
 }
 
 .displayImageContainer {
   width: 12rem;
   height: 12rem;
-  background-color: white;
-  background-image: url("../../assets/user-1.jfif");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 1000px;
+  /* background-color: white; */
+  /* background-image: url("../../assets/user-1.jfif"); */
   margin: auto;
   margin-top: -10rem;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .namePlate {
   width: 100%;
   text-align: center;
-  margin: 0;
+  margin: 1.5rem 0 0 0;
   padding: 0.3rem;
 }
 
@@ -46,6 +50,16 @@
   margin: 0;
   font-size: 2rem;
   font-weight: 500;
+}
+
+.teachingMode {
+  display: block;
+}
+
+.teachingMode > h3 {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: normal;
 }
 
 .queryContainer {

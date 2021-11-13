@@ -234,8 +234,6 @@ function Header(props) {
   // for localStorage and persisting the user login
   const user = useSelector((data) => data.user);
 
-  console.log(user, "USERRSS fetch from store");
-
   React.useEffect(() => {
     setCurrentUser(user);
   }, [user]);

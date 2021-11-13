@@ -40,7 +40,7 @@ export async function getServerSideProps(context) {
 
   const teachers = await res.json();
 
-  console.log(teachers, "<<<<TEACHER>>>>>");
+  // console.log(teachers, "<<<<TEACHER>>>>>");
 
   // By returning { props: { posts } }, the Blog component
   // will receive `posts` as a prop at build time

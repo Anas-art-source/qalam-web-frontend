@@ -24,50 +24,34 @@ function TeacherHeader(props) {
     <section className={styles.teacherHeaderContainer}>
       {/* Cover Image */}
 
-      <CoverImage
-        loader="unsplash"
-        src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2089&q=80"
-      />
+      <CoverImage loader="qalam" src={props.coverPicture} />
 
       <div className={styles.profilePictureContainer}>
         <Avatar
-          loader="unsplash"
-          src={
-            "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
-          }
+          loader="qalam"
+          src={props.userPicture}
           size="large"
           profilePic={true}
         />
       </div>
       {/* <div className={styles.profilePicture}></div> */}
       <div className={styles.namePlate}>
-        <h3>Anas Khan</h3>
+        <h3>{props.name}</h3>
       </div>
       <div className={styles.description}>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis laborum,
-          eos a odio est recusandae dicta dignissimos et, rem voluptas ad,
-          provident quas modi. Libero architecto recusandae magni eligendi
-          dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-          laborum, eos a odio est recusandae dicta dignissimos et, rem voluptas
-          ad, provident quas modi. Libero architecto recusandae magni eligendi
-          dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-          laborum, eos a odio est recusandae dicta dignissimos et, rem voluptas
-          ad, provident quas modi. Libero architecto recusandae magni eligendi
-          dolor.
-        </p>
+        <p>{props.description}</p>
       </div>
 
       <div className={styles.ratingContainer}>
         <Rating
           name="read-only"
-          value={2.6}
+          value={props.ratingAverage}
           precision={0.1}
           readOnly
           size="large"
         />
 
-        <p>(31)</p>
+        <p>({props.rating})</p>
       </div>
       <div className={styles.footer}>
         {/* Reveal phone number button */}
@@ -75,7 +59,7 @@ function TeacherHeader(props) {
           className={styles.phoneNumberButton}
           onClick={() => setRevealNumber(true)}
         >
-          0312-1202
+          {props.contactNumber.slice(0, 9)}
           {/* 3 Dot Icons that hides the number */}
           <FiberManualRecordIcon
             style={{ fontSize: "inherit", marginLeft: "0.2rem" }}

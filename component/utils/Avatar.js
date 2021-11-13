@@ -4,6 +4,10 @@ import Image from "next/image";
 import useWindowSize from "../hook/useWindowSize";
 
 export default memo(function Avatar(props) {
+  // props --> size = "large, medium, small, extrasmall"
+  //       --> loader
+  //       --> source
+
   const [profilePicDynamicSize, setProfilePicDynamicSize] =
     React.useState("large");
 
@@ -60,8 +64,10 @@ export default memo(function Avatar(props) {
         height: `${sizeInPx}px`,
         borderRadius: "100%",
         backgroundColor: "white",
-        border: "1px solid black",
+        border: "1.2px solid grey",
         overflow: "hidden",
+        display: "inline-block",
+        zIndex: 100,
       }}
     >
       <Image

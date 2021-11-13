@@ -11,68 +11,103 @@ const iconStyle = {
   color: "grey",
 };
 
-function TeacherCredentials() {
+function TeacherCredentials(props) {
   return (
     <div className={styles.teacherCredentialContainer}>
       <div>
         <h3 className={styles.heading}>Credentials</h3>
       </div>
-      <div className={styles.iconTextContainer}>
-        <FaUniversity style={iconStyle} />
-        <p>BBA from IBA (2018-2022)</p>
-      </div>
-      <div className={styles.iconTextContainer}>
-        <FaChalkboardTeacher style={iconStyle} />
-        <p>Taught at City School</p>
-      </div>
-      <div className={styles.iconTextContainer}>
-        <BsFillCalendarFill style={iconStyle} />
-        <p>Experience of 5 years</p>
-      </div>
-      <div className={styles.iconTextContainer}>
-        <GrUserExpert style={iconStyle} />
-        <p>Specialisation is Maths</p>
-      </div>
-      <div className={styles.iconTextContainer}>
-        <GrMapLocation style={iconStyle} />
-        <p>Gulshan-e-iqbal, block 4, Karachi, Pakistan</p>
-      </div>
+
+      {props.instituteName && (
+        <div className={styles.iconTextContainer}>
+          <FaUniversity style={iconStyle} />
+          <p>{props.instituteName}</p>
+        </div>
+      )}
+
+      {props.experienceSchool && (
+        <div className={styles.iconTextContainer}>
+          <FaChalkboardTeacher style={iconStyle} />
+          <p>Taught at {props.experienceSchool}</p>
+        </div>
+      )}
+
+      {props.experienceYear && (
+        <div className={styles.iconTextContainer}>
+          <BsFillCalendarFill style={iconStyle} />
+          <p>Experience of {props.experienceYear} years</p>
+        </div>
+      )}
+
+      {props.specialisation && (
+        <div className={styles.iconTextContainer}>
+          <GrUserExpert style={iconStyle} />
+          <p>Specialisation is {props.specialisation}</p>
+        </div>
+      )}
+
+      {props.address && (
+        <div className={styles.iconTextContainer}>
+          <GrMapLocation style={iconStyle} />
+          <p>{props.address}</p>
+        </div>
+      )}
 
       <div className={styles.iconTextContainer}>
         <GiTeacher style={iconStyle} />
-        <p>Teaching Mode: Physical and Online both</p>
+        <p>Teaching Mode: {props.teachingMode}</p>
       </div>
 
       {/* acedemic records  */}
       <div>
         <h3 className={styles.heading}>Academic Records</h3>
       </div>
-      <div className={styles.iconTextContainer}>
-        <BsDash style={iconStyle} />
-        <p>3.30 CGPA</p>
-      </div>
-      <div className={styles.iconTextContainer}>
-        <BsDash style={iconStyle} />
-        <p>75% in Matric</p>
-      </div>
 
-      <div className={styles.iconTextContainer}>
-        <BsDash style={iconStyle} />
-        <p>65% in Intermediate</p>
-      </div>
-
-      {/* certifications  */}
-      <div>
-        <h3 className={styles.heading}>Certifications</h3>
-      </div>
-      <div className={styles.certificateContainer}>
+      {props.CGPA && (
         <div className={styles.iconTextContainer}>
-          <FaCertificate style={iconStyle} />
-          <p>Social Media Marketing</p>
+          <BsDash style={iconStyle} />
+          <p>{props.CGPA} CGPA</p>
         </div>
+      )}
 
-        <button className={styles.certificateButton}>View Certificate</button>
+      <div className={styles.iconTextContainer}>
+        <BsDash style={iconStyle} />
+        <p>
+          {props.educationStream.includes("O levels")
+            ? `${props.gradeOlevels} in O Levels`
+            : `${props.percentageMatric} in Matric`}
+        </p>
       </div>
+
+      <div className={styles.iconTextContainer}>
+        <BsDash style={iconStyle} />
+        <p>
+          {" "}
+          {props.educationStream.includes("A levels")
+            ? `${props.gradeAlevels} in A Levels`
+            : `${props.percentageIntermediate} in Intermediate`}
+        </p>
+      </div>
+
+      {/* certifications. More Work need to be done */}
+
+      {props.certificates.length > 0 && (
+        <>
+          <div>
+            <h3 className={styles.heading}>Certifications</h3>
+          </div>
+          <div className={styles.certificateContainer}>
+            <div className={styles.iconTextContainer}>
+              <FaCertificate style={iconStyle} />
+              <p>Social Media Marketing</p>
+            </div>
+
+            <button className={styles.certificateButton}>
+              View Certificate
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }

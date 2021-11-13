@@ -5,33 +5,49 @@ import TeacherHeroSection from "../../component/TeacherHeroSection/TeacherHeroSe
 import Footer from "../../component/Footer/Footer";
 
 export default function index(props) {
-  console.log(props.teachers, "PROPS DOT TEACHER");
-
   return (
     <>
       <Header active={true} />
 
       {/* teacher hero section is commented out now it will be used later when the need will arise */}
       {/* <TeacherHeroSection /> */}
-      <TeacherListSection />
+      <TeacherListSection teachers={props.data} />
       <Footer />
     </>
   );
 }
 
-export async function getStaticProps() {
-  // Call an external API endpoint to get posts.
-  // You can use any data fetching library
-  const res = await fetch("http://localhost:1000/api/v1/teacher");
-  const teachers = await res.json();
+export async function getStaticProps(context) {
+  const res = await fetch(
+    `http://localhost:1000/api/v1/teacher?categories=Physical`
+  );
+  let data = await res.json();
+  console.log(data, "CCA");
 
-  console.log(teachers, "TEACHERS");
+  // if (!data) {
+  //   return {
+  //     redirect: {
+  //       destination: "/",
+  //       permanent: false,
+  //     },
+  //   };
+  // }
 
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
   return {
-    props: {
-      teachers,
-    },
+    props: { data },
+    revalidate: 20, // will be passed to the page component as props
   };
 }
+
+// export async function getStaticPaths() {
+//   const res = await fetch(`http://localhost:1000/api/v1/teacher`);
+//   let teacherSlug = await res.json();
+//   teacherSlug = teacherSlug.body.map((teacher) => {
+//     return { params: { slug: teacher.slug } };
+//   });
+
+//   return {
+//     paths: teacherSlug,
+//     fallback: false,
+//   };
+// }

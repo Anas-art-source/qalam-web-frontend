@@ -9,6 +9,12 @@ export default memo(function CoverImage(props) {
     };
   }
 
+  if (props.loader === "qalam") {
+    myLoader = ({ src, width, quality }) => {
+      return `${props.src}?w=${props.width}&q=${props.quality || 75}`;
+    };
+  }
+
   return (
     <div style={{ borderRadius: "10px", overflow: "hidden" }}>
       <Image
