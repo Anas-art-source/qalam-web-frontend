@@ -6,11 +6,49 @@
   width: 70%;
 }
 
-.searchContainer > input {
+.wrapper {
   padding: 1rem;
   font-size: 1.3rem;
   flex-basis: 95%;
+  position: relative;
+  /* background-color: red;S */
 }
+
+.wrapper > input {
+  padding: 1rem;
+  font-size: 1.3rem;
+  width: 100%;
+  /* background-color: red; */
+}
+
+.suggestion_box {
+  position: absolute;
+}
+
+.suggestion_box {
+  width: 97%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  z-index: 1;
+  /* display: none; */
+}
+
+.suggestion_box a {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 2px 0;
+}
+
+.suggestion_box a:hover {
+  background-color: rgb(216, 216, 216);
+}
+
+/* .wrapper:hover.suggestion_box {
+  display: flex;
+} */
 
 .searchContainer > button {
   padding: 1rem;

@@ -1,0 +1,112 @@
+.postForm {
+  width: 90%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  margin: auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 100px;
+  background-color: red;
+}
+
+.postButton {
+  flex-grow: 1;
+  padding: 1.5rem;
+  text-align: left;
+  background-color: white;
+  border: 2px solid lightgray;
+  border-radius: 30px;
+  color: gray;
+}
+
+.formBox {
+  /* padding: 0 1rem; */
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+  width: 40vw;
+}
+
+.titleWrapper {
+  width: 100%;
+  /* padding: 0rem 0.5rem; */
+  border-bottom: 1px solid lightgray;
+  /* background-color: blue; */
+}
+
+.titleWrapper > h3 {
+  font-size: 2rem;
+  padding: 0.6rem;
+  margin: 0;
+  font-weight: normal;
+  /* background-color: red; */
+}
+
+.fieldWrapper {
+  width: 100%;
+  padding: 1rem;
+  /* background-color: red; */
+}
+
+.fieldWrapper_flex {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.fieldWrapper_flex > div {
+  width: 45%;
+  margin: auto;
+}
+
+.fieldLabel {
+  font-size: 1.5rem;
+  padding: 5px 0;
+}
+
+.field {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 5px;
+}
+
+.fieldHeading {
+  font-size: 1.5rem;
+  padding: 5px 1rem;
+}
+
+.feesInputWrapper {
+  display: flex;
+  width: 100%;
+  border: 1px solid gray;
+  margin-top: 1rem;
+  /* background-color: red; */
+}
+
+.currency {
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-right: 1px solid gray;
+}
+
+.feesInput {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0 1rem;
+}
+
+.categoryWrapper {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+}

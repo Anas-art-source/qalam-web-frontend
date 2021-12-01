@@ -20,7 +20,7 @@ function SubjectContainer(props) {
               {stream.subjects.map((subject) => (
                 <li className={styles.subjectNameDisplay}>
                   <h3>
-                    {subject[0].toUpperCase() +
+                    {subject[0]?.toUpperCase() +
                       subject.slice(1, subject.length)}
                   </h3>
                   <button

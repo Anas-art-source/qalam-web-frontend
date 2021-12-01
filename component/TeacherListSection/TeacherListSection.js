@@ -21,6 +21,7 @@ function TeacherListSection(props) {
       >
         <Filter setFilterActive={setFilterActive} />
       </div>
+
       <div className={styles.mainContent}>
         <div className={styles.searchbarContainer}>
           <Searchbar />
@@ -31,6 +32,7 @@ function TeacherListSection(props) {
             <BsFilter />
           </button>
         </div>
+
         <div className={styles.teachersContainer}>
           {props.teachers.body.map((teacher) => (
             <TeacherItem

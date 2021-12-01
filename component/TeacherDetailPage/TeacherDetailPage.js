@@ -53,6 +53,13 @@ function TeacherDetailPage(props) {
         </div>
       )}
 
+      {props.teacher.assignmentSubjects.length > 1 &&
+        props.teacher.streams[0].streamName && (
+          <div className={styles.thirdSection}>
+            <SubjectContainer streams={props.teacher.streams} />
+          </div>
+        )}
+
       <div className={styles.reviewSection}>
         <TeacherReview />
       </div>

@@ -1,0 +1,26 @@
+.mainSection {
+  padding-top: 15vh;
+  width: 100vw;
+  height: 100vh;
+  /* background-color: red;/ */
+  display: flex;
+  overflow-x: hidden;
+}
+
+.leftSection {
+  background-color: rebeccapurple;
+  width: 25%;
+  height: 100vh;
+}
+
+.middleSection {
+  /* background-color: royalblue; */
+  width: 50%;
+  height: 100vh;
+}
+
+.rightSection {
+  background-color: yellow;
+  width: 25%;
+  height: 100vh;
+}

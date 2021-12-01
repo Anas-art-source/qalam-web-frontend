@@ -89,6 +89,16 @@ function HeaderLarge(props) {
     setUploadPictureModal(false);
   }
 
+  // join team or my profile
+  const [alreadyTeacher, setAlreadyTeacher] = React.useState(false);
+
+  React.useEffect(() => {
+    console.log(props.user, "{{{{USERSSS}}}}}}");
+    setAlreadyTeacher((prevState) =>
+      props?.user?.teacherProfile ? true : false
+    );
+  }, [props.user]);
+
   // it the user is not login, they are shows the sign up and login button
   const ActionContainerChildrenLogout = (
     <>
@@ -198,12 +208,23 @@ function HeaderLarge(props) {
 
           <li>
             <a
-              className={styles.joinButton}
-              onClick={() => router.push("/form")}
+              // className={styles.joinButton}
+              onClick={() => router.push("/posts")}
             >
-              Join Us !
+              Tuitions
             </a>
           </li>
+
+          {!alreadyTeacher && (
+            <li>
+              <a
+                className={styles.joinButton}
+                onClick={() => router.push("/form")}
+              >
+                Join Us !
+              </a>
+            </li>
+          )}
         </ul>
 
         <div className={styles.actionContainer}>
@@ -281,6 +302,8 @@ function Header(props) {
   } else {
     HeaderToDisplay = <HeaderMobile scrolled={scrolled} user={currentUser} />;
   }
+
+  // this renders the header
   return <>{HeaderToDisplay}</>;
 }
 
