@@ -25,6 +25,10 @@ export default memo(function GooglePlacesAutoComplete(props) {
     if (value) {
       getLatandLng(value.label);
     }
+
+    if (props.onChange) {
+      props.onChange(value);
+    }
   }, [value, props.onLoadLatLng, props]);
 
   return (

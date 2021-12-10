@@ -19,6 +19,7 @@ function CategoryButton(props) {
 
   // console.log(locationParams);
   React.useEffect(() => {
+    if (props.checked) setChecked(true);
     inputRef.current.addEventListener("change", (e) => {
       setChecked(e.target.checked);
       if (e.target.checked) {
@@ -34,6 +35,7 @@ function CategoryButton(props) {
     });
   }, []);
 
+  console.log(checked, "<< CHECKED >>");
   return (
     <div
       className={
