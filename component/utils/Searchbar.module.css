@@ -2,23 +2,23 @@
   padding: 1rem;
   background-color: white;
   display: flex;
-
   width: 70%;
+  align-items: center;
+  /* gap: 1rem; */
 }
 
 .wrapper {
-  padding: 1rem;
+  /* padding: 1rem; */
   font-size: 1.3rem;
   flex-basis: 95%;
   position: relative;
-  /* background-color: red;S */
 }
 
 .wrapper > input {
   padding: 1rem;
   font-size: 1.3rem;
   width: 100%;
-  /* background-color: red; */
+  border: 1px solid black;
 }
 
 .suggestion_box {
@@ -26,13 +26,13 @@
 }
 
 .suggestion_box {
-  width: 97%;
+  width: 100%;
   background-color: white;
   display: flex;
   flex-direction: column;
   padding: 1rem;
   z-index: 1;
-  /* display: none; */
+  display: none;
 }
 
 .suggestion_box a {
@@ -51,10 +51,16 @@
 } */
 
 .searchContainer > button {
-  padding: 1rem;
+  font-size: 3rem;
+  /* padding: 1rem; */
   border: none;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
+  background-color: transparent;
   flex-basis: 8%;
+  /* border-radius: 100px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 1050px) {
@@ -69,6 +75,6 @@
   }
 
   .searchContainer > button {
-    font-size: 10px;
+    /* font-size: 10px; */
   }
 }

@@ -40,7 +40,7 @@ export default function useFetch() {
           .catch((err) => {
             console.log(err.response, "ERROR");
             setIsValid(false);
-            setError(err.response.data.message);
+            setError(err.response ? err.response.data.message : "Error");
           });
       }
 
@@ -60,7 +60,7 @@ export default function useFetch() {
           .catch((err) => {
             console.log(err.response, "ERROR");
             setIsValid(false);
-            setError(err.response.data.message);
+            setError(err.response ? err.response.data.message : "Error");
           });
       }
 
@@ -80,7 +80,7 @@ export default function useFetch() {
           .catch((err) => {
             console.log(err.response, "ERROR");
             setIsValid(false);
-            setError(err.response.data.message);
+            setError(err.response.data ? err.response.data.message : "Error");
           });
       }
     },

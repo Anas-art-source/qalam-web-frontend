@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 export default function ActionPage() {
   const router = useRouter();
   const { path } = router.query;
-  console.log(path);
 
   return (
     <>

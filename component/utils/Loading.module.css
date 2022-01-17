@@ -1,0 +1,28 @@
+.loadingWrapper {
+  width: 30vw;
+  height: 50vh;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.heading > h1 {
+  font-size: 2rem;
+  font-weight: normal;
+}
+.loader {
+  margin: 0;
+  padding: 10rem;
+}

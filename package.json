@@ -37,6 +37,7 @@
     "react-player": "^2.9.0",
     "react-redux": "^7.2.5",
     "react-social-icons": "^5.6.1",
+    "react-spinners-kit": "^1.9.1",
     "socket.io-client": "^4.2.0",
     "styled-components": "^5.3.1"
   },

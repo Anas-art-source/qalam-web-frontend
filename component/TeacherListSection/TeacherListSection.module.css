@@ -19,11 +19,16 @@
 .searchbarContainer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: ; */
+  gap: 1rem;
 }
 
 .filterButton {
   display: none;
+  padding: 1rem;
+  font-size: 3rem;
+  background-color: transparent;
+  border: none;
 }
 
 .teachersContainer {
@@ -31,7 +36,7 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 /* media queries */
@@ -62,7 +67,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
   }
 
   .sidebar_active {
@@ -73,6 +77,12 @@
     z-index: 10;
     left: 0;
     border: 1px solid grey;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .searchbarContainer {
+    justify-content: center;
   }
 }
 
@@ -87,12 +97,17 @@
     border: 1px solid grey;
   }
 
+  .searchbarContainer {
+    justify-content: center;
+  }
+
   .sidebar_active {
-    width: 60%;
-    height: 67vh;
-    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0%;
     background-color: whitesmoke;
-    z-index: 10;
+    z-index: 1000;
     left: 50%;
     transform: translateX(-50%);
     border: 1px solid grey;
@@ -107,15 +122,16 @@
     background-color: whitesmoke;
     z-index: 10;
     left: -100%;
+    top: 0%;
     border: 1px solid grey;
   }
 
   .sidebar_active {
-    width: 80%;
+    width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     background-color: whitesmoke;
-    z-index: 10;
+    z-index: 1000;
     left: 50%;
     transform: translateX(-50%);
     border: 1px solid grey;

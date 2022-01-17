@@ -10,6 +10,20 @@
   align-items: center;
 }
 
+.backHeader {
+  width: 100%;
+  height: 15vh;
+
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 6rem 1rem 1rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+}
+
 .avatar {
   width: 70px;
   height: 70px;
@@ -33,12 +47,17 @@
   border: 1px solid gray;
   border-radius: 5px;
   width: 40vw;
+  max-height: 80vh;
+  overflow-y: scroll;
 }
 
 .titleWrapper {
   width: 100%;
   /* padding: 0rem 0.5rem; */
   border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   /* background-color: blue; */
 }
 
@@ -84,6 +103,12 @@
   margin-top: 5px;
 }
 
+.field:focus {
+  box-shadow: 0 0 2px 2px dodgerblue;
+  outline: none;
+  border: none;
+}
+
 .fieldHeading {
   font-size: 1.5rem;
   padding: 5px 1rem;
@@ -97,6 +122,12 @@
   /* background-color: red; */
 }
 
+.feesInputWrapper:focus-within {
+  box-shadow: 0 0 2px 2px dodgerblue;
+  outline: none;
+  border: none;
+}
+
 .currency {
   padding: 1rem;
   font-size: 1.5rem;
@@ -108,6 +139,17 @@
   border: none;
   outline: none;
   padding: 0 1rem;
+}
+
+.feesInput::-webkit-outer-spin-button,
+.feesInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.feesInput[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .categoryWrapper {
@@ -128,6 +170,12 @@
   gap: 1rem;
   flex-wrap: wrap;
   overflow-wrap: normal;
+}
+
+.subjectField:focus-within {
+  box-shadow: 0 0 2px 2px dodgerblue;
+  outline: none;
+  border: none;
 }
 
 .subjectFieldInput {
@@ -151,16 +199,19 @@
 }
 
 .submitButton {
-  padding: 1rem 6rem;
+  /* padding: 1rem 6rem; */
+  padding: 1rem 0;
   font-size: 1.4rem;
   border: none;
   border-radius: 5px;
   background-color: green;
   color: white;
+  flex-basis: 30%;
 }
 
 .cancelButton {
-  padding: 1rem 4rem;
+  /* padding: 1rem 4rem; */
+  padding: 1rem 0;
   font-size: 1.4rem;
   border: none;
   border-radius: 5px;
@@ -168,6 +219,7 @@
   background-color: inherit;
   /* background-color: green; */
   /* color: white; */
+  flex-basis: 20%;
 }
 
 .optionWrapper {
@@ -220,4 +272,100 @@
   width: 100%;
   display: block;
   padding: 1rem;
+}
+
+.inputField:focus {
+  box-shadow: 0 0 2px 2px dodgerblue;
+  outline: none;
+  border: none;
+}
+
+.optionsWrapper {
+  width: 100%;
+  height: 100px;
+  background-color: green;
+}
+
+.avatarPlaceholder {
+  width: 50px;
+  height: 50px;
+  border-radius: 1000px;
+  border: 1px solid lightgray;
+}
+
+@media only screen and (max-width: 1200px) {
+  .optionWrapper {
+    width: 70vw;
+  }
+
+  .formBox {
+    width: 60vw;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .optionWrapper {
+    width: 80vw;
+  }
+
+  .formBox {
+    width: 80vw;
+  }
+
+  .fieldLabel {
+    font-size: 1rem;
+  }
+
+  .fieldHeading {
+    font-size: 1rem;
+  }
+
+  .fieldWrapper {
+    padding: 1.2rem 1rem 0 1rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .optionWrapper {
+    width: 100vw;
+    height: 100vh;
+    /* flex-direction: column; */
+  }
+  .formBox {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+  }
+
+  .optionButtonWrapper {
+    flex-direction: column;
+  }
+
+  .option {
+    width: 0%;
+    padding: 1rem 8rem;
+  }
+
+  .option > * {
+    /* font-size: 2rem; */
+    padding: 0;
+    margin: 0;
+  }
+
+  .option > h3 {
+    font-size: 1.5rem;
+    /* color: red; */
+  }
+
+  .buttonWrapper {
+    width: 100%;
+  }
+
+  .submitButton {
+    flex-basis: 60%;
+  }
+
+  .cancelButton {
+    flex-basis: 40%;
+  }
 }

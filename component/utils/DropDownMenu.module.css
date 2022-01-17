@@ -1,0 +1,102 @@
+.dropdownWrapper {
+  width: 100%;
+  position: relative;
+}
+
+.inputWrapper > input {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+}
+
+.inputWrapper > input:focus {
+  outline: none;
+}
+
+.dropdownWrapper > .inputWrapper {
+  width: 100%;
+  display: flex;
+  border: 1px solid grey;
+}
+
+.dropdownWrapper > label {
+  font-size: 1.5rem;
+  padding: 5px 0;
+  /* background-color: red; */
+  display: inline-block;
+  position: relative;
+}
+
+.dropdownWrapper > .inputWrapper:focus-within {
+  box-shadow: 0 0 2px 2px dodgerblue;
+  outline: none;
+  border: none;
+}
+
+.arrowWrapper {
+  flex-basis: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 300ms ease-in-out;
+}
+
+.arrowWrapper_animation {
+  flex-basis: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  transition: all 300ms ease-in-out;
+}
+
+.optionContainer {
+  width: inherit;
+  list-style: none;
+  background-color: white;
+  box-shadow: 2px 2px 7px -2px rgba(0, 0, 0, 0.68);
+  -webkit-box-shadow: 2px 2px 7px -2px rgba(0, 0, 0, 0.68);
+  -moz-box-shadow: 2px 2px 7px -2px rgba(0, 0, 0, 0.68);
+  position: absolute;
+  padding: 1rem 0;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.optionContainer > li {
+  padding: 1rem;
+  position: relative;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.optionContainer > li::before {
+  content: "";
+  background-color: rgba(5, 54, 187, 0.76);
+  width: 5px;
+  height: 100%;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.optionContainer > li:hover::before {
+  display: block;
+}
+
+.optionContainer > li:hover {
+  background-color: #dbeafe;
+}
+
+@media screen and (max-width: 900px) {
+  .dropdownWrapper > label {
+    font-size: 1rem;
+  }
+}

@@ -60,6 +60,22 @@
 
 /* media queries */
 
+@media screen and (max-width: 1000px) {
+  /* .cardContainer {
+    width: 20rem;
+    padding: 0.7rem 0;
+  }
+
+  .icon {
+    font-size: 1.2rem;
+  }
+
+  .numberPlate {
+    width: 6rem;
+    height: 6rem;
+  } */
+}
+
 @media screen and (max-width: 600px) {
   .cardContainer {
     width: 18rem;

@@ -1,0 +1,12 @@
+.authBoxWrapper {
+  padding: 1rem;
+  background-color: white;
+  /* margin-top: 30vh; */
+}
+
+@media screen and (max-width: 600px) {
+  .authBoxWrapper {
+    width: 100vw;
+    height: 100vh;
+  }
+}

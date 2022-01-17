@@ -95,7 +95,7 @@ function HeaderLarge(props) {
   React.useEffect(() => {
     console.log(props.user, "{{{{USERSSS}}}}}}");
     setAlreadyTeacher((prevState) =>
-      props?.user?.teacherProfile ? true : false
+      props?.user?.teacherProfile?.length > 0 ? true : false
     );
   }, [props.user]);
 

@@ -1,43 +1,3 @@
-.actionContainer {
-  background-image: linear-gradient(
-    90deg,
-    var(--theme-primary-color) 0%,
-    var(--theme-secondary-color) 100%
-  );
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  padding: 7rem 0rem;
-}
-
-.errorMessage {
-  padding: 1rem;
-  background-color: rgb(240, 113, 113);
-  text-align: center;
-  font-size: 1rem;
-}
-
-.middleContainer {
-  margin-top: 3rem;
-  width: 80%;
-  background-color: white;
-  border-radius: 5px;
-  display: flex;
-  padding: 1rem;
-  box-shadow: var(--shadow);
-}
-
-.leftContainer {
-  flex-basis: 50%;
-  align-self: stretch;
-  background-image: url("../../assets/action2.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .rightContainer {
   flex-basis: 50%;
   padding: 1rem 3rem;
@@ -94,6 +54,7 @@
   gap: 1rem;
   align-items: stretch;
   justify-content: stretch;
+  flex-wrap: wrap;
 }
 
 .fbButton {
@@ -113,23 +74,9 @@
 
 /* media queries */
 
-@media screen and (max-width: 1600px) {
-  .middleContainer {
-    width: 60%;
-  }
-
-  .actionContainer {
-    /* height: 140vh; */
-  }
-}
-
 @media screen and (max-width: 1400px) {
   .middleContainer {
-    width: 80%;
-  }
-
-  .actionContainer {
-    /* height: 170vh; */
+    width: 90%;
   }
 }
 
@@ -137,19 +84,11 @@
   .middleContainer {
     width: 90%;
   }
-
-  .rightContainer {
-    flex-basis: 100%;
-  }
-
-  .actionContainer {
-    /* height: 100vh; */
-  }
 }
 
 @media screen and (max-width: 900px) {
   .middleContainer {
-    width: 90%;
+    width: 80%;
     /* max-width: 60%; */
   }
 
@@ -160,15 +99,11 @@
   .rightContainer {
     flex-basis: 100%;
   }
-
-  .actionContainer {
-    /* height: 100vh; */
-  }
 }
 
 @media screen and (max-width: 760px) {
   .middleContainer {
-    width: 95%;
+    width: 80%;
     max-width: 80%;
   }
 
@@ -178,37 +113,18 @@
 
   .rightContainer {
     flex-basis: 100%;
+    padding: 1rem 1rem;
   }
-  .actionContainer {
-    /* height: 200vh; */
+
+  .welcome {
+    font-size: 2rem;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .middleContainer {
-    width: 90%;
-    max-width: 90%;
-    height: 100%;
-  }
-
-  .leftContainer {
-    display: none;
-  }
-
-  .rightContainer {
-    flex-basis: 100%;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .actionContainer {
-    height: 100%;
-    padding: 2rem 0rem;
-  }
+@media screen and (max-width: 300px) {
   .middleContainer {
     width: 100%;
-    max-width: 100%;
-    margin-top: 12vh;
+    max-width: 80%;
   }
 
   .leftContainer {
@@ -217,10 +133,10 @@
 
   .rightContainer {
     flex-basis: 100%;
-    padding: 10px;
+    padding: 1rem 0rem;
   }
 
-  .socialButtonsContainer {
-    flex-direction: column;
+  .welcome {
+    font-size: 1.5rem;
   }
 }
