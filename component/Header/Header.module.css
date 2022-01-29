@@ -185,13 +185,18 @@
   transition: all 0.2s;
 }
 
-.chatIconContainer > span {
+.menuItemWithBadge {
+  position: relative;
+}
+
+.badge {
   position: absolute;
   background-color: orangered;
   padding: 0.4rem;
   border-radius: 100%;
   top: -30%;
   left: 85%;
+  font-size: 0.6rem;
 }
 
 .chatIconContainer:hover {

@@ -6,14 +6,19 @@
 }
 
 .sidebar {
-  flex-basis: 25%;
+  /* flex-basis: 25%; */
+  width: 25%;
+  min-width: 25%;
   border-right: 1px solid grey;
   box-sizing: border-box;
 }
 
 .mainContent {
-  flex-grow: 1;
+  /* flex-grow: 1; */
+  /* flex-basis: 75%; */
+  /* width: 75%; */
   padding: 2rem;
+  flex-grow: 1;
 }
 
 .searchbarContainer {
@@ -43,7 +48,7 @@
 
 @media screen and (max-width: 1400px) {
   .sidebar {
-    flex-basis: 40%;
+    flex-basis: 25%;
   }
 }
 
@@ -83,6 +88,12 @@
 @media screen and (max-width: 1000px) {
   .searchbarContainer {
     justify-content: center;
+  }
+
+  .teachersContainer {
+    /* background-color: red; */
+    justify-content: center;
+    margin: auto;
   }
 }
 

@@ -8,11 +8,15 @@ import TeacherReview from "../TeacherReview/TeacherReview";
 import ChatIcon from "@material-ui/icons/Chat";
 import ChatWindow from "../utils/ChatWindow";
 import useWindowSize from "../hook/useWindowSize";
+import { useSelector } from "react-redux";
 
 function TeacherDetailPage(props) {
-  console.log(props.teacher);
   const [chatButtonClicked, setChatButtonClicked] = React.useState(false);
   const { width } = useWindowSize();
+  const { loading, path } = useSelector((data) => data.loading);
+
+  console.log(loading, "loading in detail page");
+  if (loading) return <LoadingPage path={path} />;
 
   return (
     <div className={styles.teacherDetailContainer}>

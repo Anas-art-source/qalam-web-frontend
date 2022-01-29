@@ -12,20 +12,18 @@ import { useDispatch } from "react-redux";
 
 export default function Home() {
   const dispatch = useDispatch();
-  const [socket, setSocket] = React.useState();
-  React.useEffect(() => {
-    const socket = socketio("http://localhost:1000");
-    setSocket(socket);
-    console.log(socket, "SOCKETTT");
+  // const [socket, setSocket] = React.useState();
+  // React.useEffect(() => {
+  //   const socket = socketio("http://localhost:1000");
+  //   setSocket(socket);
+  //   console.log(socket, "SOCKETTT");
 
-    socket.on("messageFromServer", (data) => console.log(data));
-  }, []);
+  //   socket.on("messageFromServer", (data) => console.log(data));
+  // }, []);
 
-  function sendHi() {
-    socket.emit("messageFromClient", "Hi server, how are you doing");
-  }
   return (
     <>
+      <title>Qalam</title>
       <HeroSection />
       {/* <button onClick={sendHi}>Press me</button> */}
       <ServiceSection />

@@ -5,6 +5,7 @@ import Header from "../../../component/Header/Header";
 export default function index(props) {
   return (
     <>
+      <title>{props.data.name}</title>
       <Header active={true} />
       <TeacherDetailPage teacher={props.data} />
     </>

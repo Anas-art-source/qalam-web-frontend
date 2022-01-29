@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styles from "./Header.module.css";
 import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
 import PersonOutlineOutlinedIcon from "@material-ui/icons/PersonOutlineOutlined";
@@ -15,6 +15,11 @@ import { useDispatch } from "react-redux";
 import { userActions } from "../../store/user";
 import useFetch from "../hook/useFetch";
 import ImageUpload from "../utils/ImageUpload";
+import Socket, { socketApplication } from "../../socket/socket";
+import { connectSocketApplication } from "../../socket/socket";
+import socket from "../../store/socket";
+// import { socketActions } from "../../store/socket";
+// import { loadRequestDataThunk } from "../../store/socket";
 
 function UserOptionModal(props) {
   const { sendRequest, isLoading, isValid, setError, error, setIsValid } =
@@ -93,7 +98,6 @@ function HeaderLarge(props) {
   const [alreadyTeacher, setAlreadyTeacher] = React.useState(false);
 
   React.useEffect(() => {
-    console.log(props.user, "{{{{USERSSS}}}}}}");
     setAlreadyTeacher((prevState) =>
       props?.user?.teacherProfile?.length > 0 ? true : false
     );
@@ -128,7 +132,7 @@ function HeaderLarge(props) {
           onClick={() => router.push("/messages")}
         >
           <ChatIcon style={{ fontSize: "2.6rem" }} />
-          <span>9+</span>
+          <span className={styles.badge}>9+</span>
         </div>
       </div>
 
@@ -215,6 +219,21 @@ function HeaderLarge(props) {
             </a>
           </li>
 
+          <li>
+            <a
+              // className={styles.joinButton}
+              onClick={() => router.push("/requests")}
+              className={styles.menuItemWithBadge}
+            >
+              Requests
+              {props.recieveRequestLength > 0 && (
+                <span className={styles.badge}>
+                  {props.recieveRequestLength}
+                </span>
+              )}
+            </a>
+          </li>
+
           {!alreadyTeacher && (
             <li>
               <a
@@ -240,8 +259,13 @@ function Header(props) {
   // props : active
 
   const { width, height } = useWindowSize();
+  const [socketCli, setSocketCli] = React.useState();
 
-  const [currentUser, setCurrentUser] = React.useState();
+  const [currentUser, setCurrentUser] = React.useState({
+    login: false,
+    email: "",
+  });
+  const { email } = currentUser;
 
   // scrolled in set internally. It is not a props. it will listen to the scroll event
   const [scrolled, setScrolled] = React.useState(false);
@@ -259,6 +283,26 @@ function Header(props) {
     setCurrentUser(user);
   }, [user]);
 
+  const [requestData, setRequestData] = React.useState();
+
+  // socket io application
+  const connectToApplicationEndPoint = (userEmail) => {
+    const socketClient = connectSocketApplication;
+    socketClient.joinApplicationRoom(userEmail);
+    socketClient.recieveRequest(setRequestData);
+    socketClient.checkRequest(userEmail);
+
+    setTimeout(() => {
+      setSocketCli(socketClient);
+    }, 1000);
+  };
+
+  React.useEffect(() => {
+    if (!email || !currentUser.login) return;
+    console.log("hereee ||||||", email);
+    connectToApplicationEndPoint(email);
+  }, [email, socketCli]);
+
   React.useEffect(() => {
     // if we have already pass active props as true. This will
     // ensure that header has background color or in other words,
@@ -266,7 +310,7 @@ function Header(props) {
 
     if (active) setScrolled(true);
 
-    // if the active props is not passed, then header default behaviour will take place
+    // if the active props is not passed, then header default be,haviour will take place
     // default behaviour is that before any scrolling, the header has no background color or has default navContainer class or styling
     // when it is scrolled it get one extra class that is navContainer_active class or styling
     if (!active) {
@@ -298,7 +342,13 @@ function Header(props) {
   let HeaderToDisplay;
 
   if (width > 900) {
-    HeaderToDisplay = <HeaderLarge scrolled={scrolled} user={currentUser} />;
+    HeaderToDisplay = (
+      <HeaderLarge
+        scrolled={scrolled}
+        user={currentUser}
+        recieveRequestLength={requestData ? requestData.length : ""}
+      />
+    );
   } else {
     HeaderToDisplay = <HeaderMobile scrolled={scrolled} user={currentUser} />;
   }

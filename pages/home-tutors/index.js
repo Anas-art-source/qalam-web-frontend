@@ -7,6 +7,8 @@ import Footer from "../../component/Footer/Footer";
 export default function index(props) {
   return (
     <>
+      <title>Home Tutors</title>
+
       <Header active={true} />
 
       {/* teacher hero section is commented out now it will be used later when the need will arise */}
